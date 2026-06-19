@@ -1,0 +1,40 @@
+{
+  "_description": "Reference rubric data for A7 Parcial #2 (Startup Full Stack MVP). Use as a template for any 5-criterion × 4-level rubric.",
+  "title": "7. Parcial #2: MVP de Aplicación Startup Full Stack en Grupo",
+  "instructions": "Construir en grupos de 2-3 integrantes un MVP funcional de una aplicación web startup full-stack que sirva como base del proyecto Semestral. Cada grupo elige libremente el dominio (ecommerce, marketplace, SaaS, plataforma de servicios, etc.) y entrega una solución ejecutable localmente con la arquitectura mínima requerida.\n\nStack técnico requerido:\n- Frontend: React + Vite + TypeScript + Tailwind CSS\n- Backend: Bun (Hono, TanStack Start o equivalente)\n- Base de datos: MongoDB Atlas o SQLite\n- Autenticación: Clerk\n- Pagos: Stripe Checkout o Elements (modo sandbox aceptable)\n- Containerización: Dockerfiles + docker-compose.yml\n- Pruebas e2e: Playwright cubriendo los flujos críticos\n\nEntregables (en parciales/parcial-2/ del repositorio del curso):\n1. PRD.md — Product Requirements Document: resumen ejecutivo, problema, objetivos, alcance, stack confirmado\n2. REQUIREMENTS.md — Requerimientos Funcionales y No Funcionales explícitos\n3. ARCHITECTURE.md — Visión arquitectónica, capas, componentes, decisiones técnicas\n4. STARTUP_SHEET.md — Guía de arranque rápido (prerequisitos, comandos, flujo de prueba mínimo)\n5. PITCH.md — Pitch corto: problema, solución, diferencial, valor, cierre\n6. README.md — Visión general + integrantes del grupo\n7. Código fuente compilable y ejecutable\n8. Suite Playwright e2e con flujos críticos (auth + transacción + vista admin)\n\nDemo en clase: cada grupo presenta el MVP corriendo localmente (10-15 min): demo del flujo principal, vista admin, una transacción end-to-end y explicación arquitectónica breve.",
+  "rubric": {
+    "title": "Parcial2-StartupFullStack",
+    "description": "Rúbrica de evaluación: 5 criterios × 20% = 100 puntos. MVP startup full-stack en grupo.",
+    "scale": "Excelente, Bueno, Normal, Deficiente",
+    "criteria": [
+      "Funcionalidad del MVP",
+      "Arquitectura y stack técnico",
+      "Documentación (PRD + REQUIREMENTS + ARCHITECTURE + STARTUP_SHEET + PITCH)",
+      "Pruebas e2e con Playwright",
+      "Demo y pitch en clase"
+    ],
+    "cells": [
+      "MVP completo: auth + transacción + admin + persistencia funcionan end-to-end",
+      "Mayoría de flujos funciona, bugs menores",
+      "MVP parcial, flujo principal corre pero falta admin o pagos",
+      "No compila o flujos principales rotos",
+      "Stack completo (Bun + React + Vite + TS + Tailwind + Mongo/SQLite + Clerk + Stripe + Docker), separación clara de capas",
+      "Stack mayormente cumplido, pieza faltante (ej. Docker incompleto)",
+      "Stack básico, sin separación clara de responsabilidades",
+      "Stack no cumple requisitos mínimos",
+      "Los 5 documentos entregados, completos y bien estructurados",
+      "Los 5 entregados con secciones superficiales",
+      "Faltan 1-2 documentos o son muy breves",
+      "Faltan más de 2 documentos o son inexistentes",
+      "Suite completa: auth + transacción + admin + casos negativos, assertions reales",
+      "Cubre flujos principales, faltan casos negativos",
+      "Suite mínima, navegación sin assertions sustanciales",
+      "Sin pruebas o no ejecutables",
+      "MVP corre sin fallos, demo fluida end-to-end, pitch claro problema-solución-diferencial",
+      "Demo funciona con tropiezos menores, pitch presente",
+      "Demo con fallos en flujos importantes o pitch poco claro",
+      "Demo no funciona o no se realiza pitch"
+    ],
+    "weights": [20, 20, 20, 20, 20]
+  }
+}
