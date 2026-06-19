@@ -65,13 +65,21 @@ Detalles del editor Forms en `~/.claude/skills/create-teams-assignment/SKILL.md`
 - Una pregunta del quiz solo expone sus textboxes cuando está enfocada; las demás colapsan a `button[aria-label^="N. Question title ..."]`.
 - "Done" (top-right en Teams iframe) asocia el quiz a la asignación. "Close" es el botón de retorno cuando re-editas un quiz adjunto.
 
+## Control de versiones
+
+Este workspace está en el repo **privado** `git@github.com:ErickAgrazal/universidad-ai.git` (rama `main`). Es privado a propósito: incluye reportes con nombres+notas de estudiantes (FINAL_GRADES, GRADING_RESULTS, `revisiones/`, precalificaciones). **Si alguna vez se vuelve público, purgar esos reportes del historial primero.**
+
+- **Se versiona** (por allowlist): contexto (CLAUDE/AGENTS/MEMORY/programa), `.claude/skills` + comandos, `SEM*/scripts`, `SEM*/materials`, definiciones de asignaciones (RUBRIC/INSTRUCTIONS/quiz/assignment.json) y reportes md/csv seleccionados.
+- **Se ignora** (`.gitignore`): repos clonados de estudiantes, videos/binarios, `node_modules`/`.venv`/`__pycache__`, `debug-dumps`/`pdf-qa`, `/2026/`, `/graduacion/`, y PII cruda (`notas_actuales_*`, `matricula_midterm_*`, `*_rosters.json`, `feedback_*.json`, `.xlsx` de Teams).
+- **Nunca `git add -A`** (arrastra los 133 `.git` anidados de clones y la PII cruda). Añadir por allowlist explícita de archivos.
+
 ## Dumps de depuración
 
-Los `*.md`/`*.png`/`*.yml` que genera Playwright durante sesiones (screenshots, snapshots de listas, vistas de estudiantes) van en `SEM*/debug-dumps/`, NO sueltos en la raíz ni en el año. No son documentación. Se pueden borrar sin pérdida una vez la sesión termina.
+Los `*.md`/`*.png`/`*.yml` que genera Playwright durante sesiones (screenshots, snapshots de listas, vistas de estudiantes) van en `SEM*/debug-dumps/`, NO sueltos en la raíz ni en el año. No son documentación. Se pueden borrar sin pérdida una vez la sesión termina. (Están en `.gitignore`.)
 
 ## Cosas que NO hacer
 
 - No abrir `forms.office.com` directamente para editar un quiz de Teams (se vuelve huérfano).
-- No usar `git add -A` aquí — el directorio acumula screenshots de Playwright que no deben commitearse.
+- No usar `git add -A` aquí — el directorio acumula repos clonados de estudiantes, PII cruda y screenshots de Playwright. Añadir por allowlist explícita (ver "Control de versiones").
 - No re-correr `grade-teams-lab` sin revisar primero el FINAL_GRADES.md de la asignación: las notas ya pueden estar en Teams.
 - No confiar en transcripciones Whisper para detectar grupos — siempre cruzar con las fuentes escritas (PDFs) del semestre.
