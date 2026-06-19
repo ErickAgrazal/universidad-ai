@@ -1,0 +1,62 @@
+{
+  "_source": "regular/2026/Laboratorio_MCP_1.docx",
+  "_number_rationale": "Highest published in Teams is A11 (Parcial #3). A12 MCP-project planned but not yet in Teams; user said 'just the next assignment' -> 12. Verify in Teams before committing.",
+  "number": 12,
+  "title": "12. Laboratorio: Servidor MCP local con GitHub Copilot en VS Code",
+  "points": 100,
+  "final_action": "assign",
+  "classes": [
+    {
+      "section": "1GS241",
+      "team": "DES__SOFT_IX_1GS241_2026",
+      "due": "2026-06-24T23:00:00",
+      "due_human": "Mié 24 Jun 2026, 11:00 PM"
+    },
+    {
+      "section": "1GS242",
+      "team": "DES__SOFT_IX_1GS242_2026",
+      "due": "2026-06-25T23:00:00",
+      "due_human": "Jue 25 Jun 2026, 11:00 PM"
+    }
+  ],
+  "instructions": "Construye un servidor MCP local en Python, regístralo en .vscode/mcp.json y ejecuta sus herramientas desde GitHub Copilot Chat en modo Agent dentro de Visual Studio Code. Duración sugerida en clase: 60 minutos.\n\nObjetivo:\nDemostrar que Copilot (cliente) puede descubrir e invocar tools expuestas por server.py (servidor) a través del protocolo MCP por stdio.\n\nRequisitos:\n- VS Code con la carpeta qaLabMcp abierta (no solo el archivo).\n- Python instalado en Windows (python --version) y la extensión Python en VS Code.\n- GitHub Copilot Chat con sesión iniciada.\n- Instalar el SDK: python -m pip install \"mcp[cli]\".\n\nEstructura final esperada:\nqaLabMcp/\n  .vscode/mcp.json\n  server.py\n\nParte 1 - Servidor base (server.py):\nCrea un FastMCP llamado \"qaLabMcp\" con estas 3 tools y compílalo con python -m py_compile server.py:\n1. validar_cliente(cip, telefono, email) - valida y normaliza datos de un cliente.\n2. generar_caso_prueba(endpoint, metodo, escenario) - genera un caso de prueba funcional.\n3. calcular_percentil_simple(valores, percentil) - calcula un percentil simple.\n\nParte 2 - Registro y conexion:\nCrea .vscode/mcp.json (type stdio, command python, args server.py) y arranca el servidor con Ctrl+Shift+P > MCP: List Servers > qaLabMcp > Start Server. Regla: no ejecutes \"python server.py\" en otra terminal; VS Code maneja el proceso stdio.\n\nParte 3 - Pruebas desde Copilot (modo Agent):\nConfirma que las tools aparecen y ejecuta los 3 prompts de prueba:\nA) validar_cliente con CIP 12345, telefono 6677-8899, correo prueba@demo.com.\nB) generar_caso_prueba para POST /api/login con credenciales invalidas.\nC) calcular_percentil_simple del percentil 95 de [120,130,150,300,90,100,500,220].\n\nParte 4 - Retos practicos (agrega cada tool antes de if __name__ == \"__main__\" y reinicia el servidor):\n- Reto 1 (Basico): clasificar_error_http(status_code) -> Exito / Redireccion / Error del cliente / Error del servidor. Prueba: 500 -> Error del servidor.\n- Reto 2 (Intermedio): evaluar_sla(p95_ms, limite_ms) -> {cumple, diferencia_ms}. Prueba: p95=480, limite=500 -> cumple.\n- Reto 3 (Intermedio): validar_respuesta_api(status_code, tiempo_ms, limite_ms, tiene_token) -> valido solo si 2xx, tiempo cumple y existe token. Prueba: 200,350,500,true -> valido.\n- Reto 4 (Avanzado): datos_prueba.json + buscar_cliente(cip) que lea el archivo y devuelva el cliente o un mensaje de no encontrado (MCP conectando Copilot con datos locales).\n\nEntregables:\n- Repositorio GitHub con server.py, .vscode/mcp.json y datos_prueba.json.\n- Evidencia de cada prueba y cada reto: captura de la tool visible en Copilot, el prompt usado y el resultado devuelto.\n\nReferencias oficiales: VS Code MCP Servers, GitHub Copilot MCP, MCP Python SDK.",
+  "rubric": {
+    "name": "Rubrica - Laboratorio Servidor MCP",
+    "description": "Evaluacion del servidor MCP local, su registro en VS Code, ejecucion desde Copilot, los retos practicos y las evidencias entregadas.",
+    "scale": ["Excelente", "Bueno", "Normal", "Deficiente"],
+    "criteria": [
+      "Servidor MCP base (3 tools con FastMCP)",
+      "Registro y conexion en VS Code (mcp.json + List Servers)",
+      "Ejecucion desde Copilot en modo Agent (3 pruebas)",
+      "Retos practicos (4 tools adicionales)",
+      "Evidencias y documentacion (capturas: tool, prompt, resultado)"
+    ],
+    "weights": [20, 20, 20, 20, 20],
+    "cells": [
+      "Las 3 tools (validar_cliente, generar_caso_prueba, calcular_percentil_simple) funcionan y server.py compila sin errores; FastMCP nombrado correctamente.",
+      "Las 3 tools estan presentes y funcionan con detalles menores (un campo o normalizacion incompleta).",
+      "Solo 1-2 tools funcionan o server.py compila pero con tools incompletas.",
+      "server.py no compila o las tools base no funcionan.",
+
+      "mcp.json correcto (stdio, python, args/cwd) en .vscode/ y el servidor inicia desde MCP: List Servers sin tocar la terminal.",
+      "El servidor inicia pero con configuracion subóptima (ruta o cwd ajustados a mano) o requiere reintentos.",
+      "mcp.json mal ubicado o el servidor inicia con dificultad / fuera del flujo de VS Code.",
+      "El servidor no se registra ni inicia desde VS Code.",
+
+      "Las tools aparecen en Copilot (Agent) y las 3 pruebas A, B y C devuelven respuestas estructuradas correctas.",
+      "Las 3 pruebas se ejecutan con 1 resultado parcial o autorizacion no documentada.",
+      "Solo 1-2 pruebas se ejecutan correctamente desde Copilot.",
+      "Copilot no descubre las tools o ninguna prueba se ejecuta.",
+
+      "Los 4 retos implementados y probados con los casos indicados, incluyendo lectura de datos_prueba.json en buscar_cliente.",
+      "3 de 4 retos correctos y probados.",
+      "1-2 retos correctos o probados parcialmente.",
+      "Ningun reto implementado o probado.",
+
+      "Evidencia completa de cada prueba y reto: tool visible, prompt y resultado, organizada y legible en el repo.",
+      "Evidencia de la mayoria de pruebas/retos, con algunas capturas faltantes.",
+      "Evidencia escasa o sin el prompt/resultado correspondiente.",
+      "Sin evidencias."
+    ]
+  }
+}
