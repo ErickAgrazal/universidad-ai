@@ -1,0 +1,50 @@
+{
+  "assignmentNumber": 10,
+  "title": "10. Proyecto individual: Juego de Damas con IA A*",
+  "teamsTitle": "10. Proyecto individual: Juego de Damas con IA A*",
+  "classes": [
+    { "section": "1GS241", "team": "DES__SOFT_IX_1GS241_2026" },
+    { "section": "1GS242", "team": "DES__SOFT_IX_1GS242_2026" }
+  ],
+  "points": 100,
+  "modalidad": "Individual",
+  "postDate": "2026-06-11",
+  "dueAt": "2026-06-12T23:59:00-05:00",
+  "lateUntil": "2026-06-13T23:59:00-05:00",
+  "acceptLateSubmissions": true,
+  "submissionType": "GitHub repository link plus README and in-class demo",
+  "stackRequired": [
+    "TanStack Start",
+    "Bun",
+    "Hono",
+    "MongoDB",
+    "Docker / Docker Compose"
+  ],
+  "extraTechRequirements": [
+    "IA del oponente con A* OBLIGATORIO — sin variaciones (no minimax, no alpha-beta, no MCTS)",
+    "A* en microservicio Bun independiente: endpoint HTTP, recibe estado JSON, retorna movimiento",
+    "Login con contraseñas cifradas + ranking persistente en MongoDB",
+    "Pago en línea en modo prueba (fichas o tableros)",
+    "Tests: unitarios mínimo, Playwright preferido"
+  ],
+  "variantes": [
+    "Inglesas/Americanas (8x8)",
+    "Internacionales (10x10)",
+    "Brasileñas (8x8)",
+    "Españolas (8x8)",
+    "Turcas (8x8 ortogonal)"
+  ],
+  "rubric": [
+    { "criterion": "Motor de damas: variante, reglas y validación backend", "points": 20 },
+    { "criterion": "Microservicio IA en Bun con A* puro (estado → movimiento)", "points": 25 },
+    { "criterion": "Login y ranking persistente", "points": 15 },
+    { "criterion": "Pago en línea (fichas/tableros)", "points": 15 },
+    { "criterion": "Tests (unitarios mínimo; Playwright preferido)", "points": 10 },
+    { "criterion": "Documentación, Docker y demo", "points": 15 }
+  ],
+  "_notes": [
+    "Due tomorrow per user request: 2026-06-12 11:59 PM America/Panama.",
+    "Mirror A9 pattern: NO Teams rubric attached (no-points rubric disabled grading in A9); plain 100-pt grade field; per-criterion points inside instructions.",
+    "A* microservice is the heaviest criterion per explicit user instruction."
+  ]
+}

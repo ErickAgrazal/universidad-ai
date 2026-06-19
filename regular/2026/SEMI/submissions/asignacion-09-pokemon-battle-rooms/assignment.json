@@ -1,0 +1,86 @@
+{
+  "assignmentNumber": 9,
+  "title": "9. Proyecto individual: Pokemon Battle Rooms",
+  "teamsTitle": "9. Proyecto individual: Pokemon Battle Rooms",
+  "sourcePdf": "/Users/ea/Downloads/Proyecto_Pokemon_Battle_Rooms_UTP_FISC_sin_cuadro_proyecto_indiv.pdf",
+  "classes": [
+    {
+      "section": "1GS241",
+      "team": "DES__SOFT_IX_1GS241_2026"
+    },
+    {
+      "section": "1GS242",
+      "team": "DES__SOFT_IX_1GS242_2026"
+    }
+  ],
+  "points": 100,
+  "modalidad": "Individual",
+  "postDate": "2026-05-22",
+  "dueAt": "2026-05-22T23:59:00-05:00",
+  "lateUntil": "2026-05-23T23:59:00-05:00",
+  "acceptLateSubmissions": true,
+  "submissionType": "GitHub repository link plus README and in-class demo",
+  "teamsStatus": {
+    "publishedAt": "2026-05-22",
+    "publishedBy": "Codex via Teams Playwright session",
+    "gradeSettingsFixedAt": "2026-05-22",
+    "classes": [
+      {
+        "section": "1GS241",
+        "team": "DES__SOFT_IX_1GS241_2026",
+        "status": "published",
+        "verifiedInUpcoming": true,
+        "gradePoints": 100,
+        "verifiedGradeColumn": true
+      },
+      {
+        "section": "1GS242",
+        "team": "DES__SOFT_IX_1GS242_2026",
+        "status": "published",
+        "verifiedInUpcoming": true,
+        "gradePoints": 100,
+        "verifiedGradeColumn": true
+      }
+    ],
+    "notes": [
+      "PDF attached in both classes.",
+      "Original attached rubric Asignacion9-PokemonBattleRooms was a no-points rubric and disabled grade entry in Teams.",
+      "Fixed by removing the no-points rubric from both published assignments and setting the real Teams grade field to 100 points.",
+      "Per-criterion points remain in the assignment instructions and attached PDF."
+    ]
+  },
+  "stackRequired": [
+    "TanStack Start",
+    "Bun",
+    "Hono",
+    "MongoDB",
+    "Docker / Docker Compose"
+  ],
+  "rubric": [
+    {
+      "criterion": "Datos Pokemon y persistencia",
+      "points": 20
+    },
+    {
+      "criterion": "Salas, jugadores y flujo de batalla",
+      "points": 20
+    },
+    {
+      "criterion": "Motor de turnos, dano, tipos y estados",
+      "points": 25
+    },
+    {
+      "criterion": "Interfaz, sprites y animaciones",
+      "points": 15
+    },
+    {
+      "criterion": "Documentacion, Docker y demo",
+      "points": 20
+    }
+  ],
+  "_notes": [
+    "Due today per user request: 2026-05-22 11:59 PM America/Panama.",
+    "Late submissions accepted until Saturday 2026-05-23 11:59 PM America/Panama.",
+    "Teams text should be concise; attach source PDF for full formulas and detailed requirements."
+  ]
+}

@@ -1,0 +1,55 @@
+# ======================================================================
+# universidad-ai — workspace docente. Repo PRIVADO.
+# Estrategia: NO versionar repos clonados de estudiantes, binarios pesados,
+# venvs, artefactos de Playwright, ni PII cruda (notas/matrícula/rosters).
+# Solo tooling, definiciones de asignaciones y reportes seleccionados.
+# ======================================================================
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+*.swp
+
+# --- entornos y dependencias ---
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.pyc
+dist/
+build/
+.next/
+.cache/
+
+# --- artefactos de Playwright / depuración (descartables) ---
+.playwright-mcp/
+**/debug-dumps/
+**/pdf-qa/
+/2026/                      # carpeta suelta de dumps (debug-dumps/reviews/scripts)
+
+# --- trabajos de graduación (PII de estudiantes, fuera de alcance) ---
+/graduacion/
+
+# --- binarios pesados / multimedia (videos de presentaciones, etc.) ---
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# --- PII cruda: exportaciones y rosters (NO versionar) ---
+**/notas_actuales_*/
+**/matricula_midterm_*/
+*_grades_*.xlsx
+*grades*.xlsx
+*_rosters.json
+**/feedback_*.json
+**/feedback_detalle_*.json
+
+# --- repos clonados de estudiantes dentro de submissions ---
+# (se añaden explícitamente solo los archivos de definición/reporte del docente;
+#  el resto del árbol de cada asignación queda fuera por allowlist en el add)

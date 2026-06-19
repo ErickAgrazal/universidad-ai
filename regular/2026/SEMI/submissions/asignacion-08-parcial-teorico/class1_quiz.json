@@ -1,0 +1,189 @@
+{
+  "_class": "1GS241",
+  "_schedule": "Wed May 20, 2026 — 8:00 PM Panama time",
+  "_duration_min": 20,
+  "_scoring": {"mc_each": 3, "dev_each": 10, "total": 80},
+  "_topics_covered": [
+    "MongoDB+Docker", "Análisis Requerimientos", "Front React Template",
+    "Full Stack Architecture", "GitHub Template", "Stitch", "RAG+Neo4j",
+    "Pasarelas Pago + IA + Persistencia", "GAITD + Skills.md", "Formulación FS",
+    "OpenRouter", "Claude Code", "Copilot CLI", "CopilotKit"
+  ],
+  "mc": [
+    {
+      "n": 1, "topic": "Docker+MongoDB",
+      "q": "¿Cuál de los siguientes NO es un componente principal de Docker mencionado en el informe?",
+      "options": ["Docker Engine", "Docker Image", "Docker Compose", "Docker Repository"],
+      "correct": [3], "multi": false
+    },
+    {
+      "n": 2, "topic": "Docker+MongoDB",
+      "q": "¿Qué archivo se usa para definir aplicaciones multi-contenedor en Docker?",
+      "options": ["Dockerfile", "docker-compose.yml", ".env", "package.json"],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 3, "topic": "Análisis Requerimientos",
+      "q": "¿Cuáles son características que debe tener un buen requerimiento funcional? (selecciona todas las que apliquen)",
+      "options": ["Atómico", "Verificable", "Claro", "Subjetivo"],
+      "correct": [0, 1, 2], "multi": true
+    },
+    {
+      "n": 4, "topic": "Análisis Requerimientos",
+      "q": "Un requerimiento que define 'el sistema debe responder en menos de 200ms' es:",
+      "options": ["Requerimiento funcional", "Requerimiento no funcional", "Caso de uso", "User story"],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 5, "topic": "Front React Template",
+      "q": "En la plantilla Front React Template, ¿qué herramienta moderna se usa como servidor de desarrollo y bundler?",
+      "options": ["Vite", "Webpack", "Parcel", "Rollup"],
+      "correct": [0], "multi": false
+    },
+    {
+      "n": 6, "topic": "Full Stack Architecture",
+      "q": "¿Qué código de estado HTTP indica que un recurso fue creado correctamente?",
+      "options": ["200", "201", "204", "301"],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 7, "topic": "Full Stack Architecture",
+      "q": "En arquitectura REST, ¿cuáles métodos HTTP se consideran idempotentes? (selecciona todas las que apliquen)",
+      "options": ["GET", "PUT", "DELETE", "POST"],
+      "correct": [0, 1, 2], "multi": true
+    },
+    {
+      "n": 8, "topic": "GitHub Template",
+      "q": "¿Cuál es la principal ventaja de un Template Repository en GitHub?",
+      "options": [
+        "Permite hacer fork heredando relación con el original",
+        "Crea un nuevo repositorio sin heredar el historial de commits",
+        "Sincroniza automáticamente con el original",
+        "Solo funciona en repositorios privados"
+      ],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 9, "topic": "Stitch",
+      "q": "Stitch (Google Labs) es una herramienta que principalmente:",
+      "options": [
+        "Compila código React a HTML estático",
+        "Convierte descripciones en lenguaje natural a diseños UI con código exportable",
+        "Reemplaza a Figma para diseño manual",
+        "Genera tests automáticamente"
+      ],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 10, "topic": "RAG+Neo4j",
+      "q": "¿Qué significa RAG?",
+      "options": ["Random Access Generator", "Retrieval-Augmented Generation", "Real-time Augmented Graph", "Recurrent AI Generator"],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 11, "topic": "RAG+Neo4j",
+      "q": "Neo4j es una base de datos:",
+      "options": ["Relacional SQL", "Documental como MongoDB", "De grafos", "Clave-valor"],
+      "correct": [2], "multi": false
+    },
+    {
+      "n": 12, "topic": "Pasarelas Pago",
+      "q": "¿Cuáles de las siguientes son pasarelas de pago descritas en el informe? (selecciona todas las que apliquen)",
+      "options": ["Yappy", "PayU", "PagueloFacil", "Stripe"],
+      "correct": [0, 1, 2], "multi": true
+    },
+    {
+      "n": 13, "topic": "Pasarelas Pago",
+      "q": "Cuando se habla de integrar modelos de IA usando 'el estándar de OpenAI', se refiere a:",
+      "options": [
+        "Que solo se pueden usar modelos de OpenAI",
+        "Que se usa la misma forma de consumo (API compatible) para distintos modelos y proveedores",
+        "Únicamente modelos open-source",
+        "Modelos entrenados exclusivamente por OpenAI"
+      ],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 14, "topic": "GAITD",
+      "q": "¿Qué significa la sigla GAITD en el contexto del informe?",
+      "options": [
+        "Generic AI Token Distribution",
+        "Gen AI Induced Soft Admitted Technical Depth",
+        "Global AI Tooling Database",
+        "GitHub AI Toolkit Driver"
+      ],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 15, "topic": "GAITD",
+      "q": "Un archivo skills.md sirve principalmente para:",
+      "options": [
+        "Listar los integrantes del proyecto",
+        "Convertir requerimientos en habilidades ejecutables por agentes de IA",
+        "Definir reglas de ESLint",
+        "Documentar la API REST"
+      ],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 16, "topic": "Formulación FS",
+      "q": "En la formulación de un proyecto Full Stack, ¿qué aspectos deben definirse al inicio? (selecciona todas las que apliquen)",
+      "options": [
+        "Objetivos del proyecto",
+        "Selección de tecnologías y herramientas",
+        "Alcance y requerimientos funcionales/técnicos",
+        "Color de la marca corporativa"
+      ],
+      "correct": [0, 1, 2], "multi": true
+    },
+    {
+      "n": 17, "topic": "OpenRouter",
+      "q": "OpenRouter actúa principalmente como:",
+      "options": [
+        "Un modelo de lenguaje propio entrenado por la plataforma",
+        "Un router/intermediario que da una API unificada para múltiples proveedores de IA",
+        "Una base de datos vectorial",
+        "Un servicio de hosting de aplicaciones"
+      ],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 18, "topic": "Claude Code",
+      "q": "¿Cuáles son fases del proceso agentic de Claude Code? (selecciona todas las que apliquen)",
+      "options": ["Exploración", "Planificación", "Ejecución", "Verificación"],
+      "correct": [0, 1, 2, 3], "multi": true
+    },
+    {
+      "n": 19, "topic": "Copilot CLI",
+      "q": "GitHub Copilot CLI se diferencia de las extensiones tradicionales de Copilot porque:",
+      "options": [
+        "Solo funciona dentro de VS Code",
+        "Es un agente local con acceso al sistema de archivos y capacidad para ejecutar comandos en la terminal",
+        "Es gratis sin necesidad de suscripción",
+        "Solo sugiere comandos shell sin ejecutarlos"
+      ],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 20, "topic": "CopilotKit",
+      "q": "¿Cuál es el flujo principal de una UI construida con CopilotKit?",
+      "options": [
+        "Database → Query → Response",
+        "Prompt → Acción → UI",
+        "UI → Backend → AI",
+        "AI → Logging → User"
+      ],
+      "correct": [1], "multi": false
+    }
+  ],
+  "dev": [
+    {
+      "n": 21, "points": 10,
+      "q": "Explica con un ejemplo concreto la diferencia entre un Requerimiento Funcional y un Requerimiento No Funcional en el diseño de una API REST de una aplicación Full Stack, y justifica por qué esa diferencia es importante para la arquitectura."
+    },
+    {
+      "n": 22, "points": 10,
+      "q": "Compara Claude Code y GitHub Copilot CLI como herramientas de IA agentic: identifica 2 diferencias clave (técnicas o de filosofía) y explica en qué tipo de proyecto Full Stack elegirías una sobre la otra y por qué."
+    }
+  ]
+}

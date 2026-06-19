@@ -1,0 +1,211 @@
+{
+  "_class": "1GS242",
+  "_schedule": "Thu May 21, 2026 — 7:00 PM Panama time",
+  "_duration_min": 20,
+  "_scoring": {"mc_each": 3, "dev_each": 10, "total": 80},
+  "_topics_covered": [
+    "MongoDB+Docker (medinet)", "Requerimientos FN/NF",
+    "Hindsight (memoria agentes)", "OpenCode",
+    "Desarrollo Agéntico (Claude/Copilot/OpenCode/Pi)",
+    "TanStack", "Plantilla GitHub Bun", "Backend Architecture",
+    "Stack + Playwright (Grupo 11)", "Pre/Post IA Full Stack",
+    "Formulación FS / Definición Problema"
+  ],
+  "mc": [
+    {
+      "n": 1, "topic": "Docker+MongoDB",
+      "q": "¿Qué archivo de Docker permite orquestar múltiples servicios (frontend, backend, base de datos) dentro de una misma red aislada?",
+      "options": ["Dockerfile", "docker-compose.yml", ".dockerignore", "package.json"],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 2, "topic": "Docker+MongoDB",
+      "q": "MongoDB es una base de datos:",
+      "options": ["Relacional SQL", "NoSQL documental", "De grafos como Neo4j", "Solo en memoria"],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 3, "topic": "Requerimientos FN/NF",
+      "q": "Un requerimiento que especifica 'el sistema debe soportar 1000 usuarios concurrentes' es:",
+      "options": ["Funcional", "No funcional (rendimiento)", "Funcional de seguridad", "Caso de uso"],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 4, "topic": "Requerimientos FN/NF",
+      "q": "¿Cuáles de los siguientes son ejemplos de requerimientos NO funcionales? (selecciona todas las que apliquen)",
+      "options": ["Seguridad", "Usabilidad", "Tiempo de respuesta", "Gestión de usuarios"],
+      "correct": [0, 1, 2], "multi": true
+    },
+    {
+      "n": 5, "topic": "Hindsight",
+      "q": "Hindsight (Vectorize) es una plataforma que resuelve principalmente:",
+      "options": [
+        "La falta de memoria persistente entre sesiones en agentes de IA",
+        "La generación de UIs a partir de lenguaje natural",
+        "La orquestación de contenedores Docker",
+        "El bundling de aplicaciones React"
+      ],
+      "correct": [0], "multi": false
+    },
+    {
+      "n": 6, "topic": "OpenCode",
+      "q": "OpenCode se diferencia de otras herramientas de IA por ser:",
+      "options": [
+        "De código cerrado y propietario",
+        "Open source, multi-proveedor (Claude, GPT, Gemini, Ollama)",
+        "Solo compatible con GitHub Copilot",
+        "Exclusivo para Java y Spring"
+      ],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 7, "topic": "Agentic AI",
+      "q": "¿Cuáles de las siguientes herramientas son agentes de IA capaces de actuar autónomamente (planificar, ejecutar código, abrir PRs)? (selecciona todas las que apliquen)",
+      "options": ["Claude Code", "GitHub Copilot CLI", "OpenCode", "Pi (Inflection)"],
+      "correct": [0, 1, 2], "multi": true
+    },
+    {
+      "n": 8, "topic": "Agentic AI",
+      "q": "Un archivo CLAUDE.md o AGENTS.md en la raíz del proyecto se usa típicamente para:",
+      "options": [
+        "Listar dependencias npm",
+        "Definir reglas, convenciones y contexto que el agente debe respetar",
+        "Configurar el bundler",
+        "Almacenar credenciales"
+      ],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 9, "topic": "TanStack",
+      "q": "¿Cuáles son componentes del ecosistema TanStack? (selecciona todas las que apliquen)",
+      "options": ["TanStack Query", "TanStack Router", "TanStack Table", "TanStack Bun"],
+      "correct": [0, 1, 2], "multi": true
+    },
+    {
+      "n": 10, "topic": "TanStack",
+      "q": "TanStack Query se usa principalmente para:",
+      "options": [
+        "Renderizar tablas grandes virtualizadas",
+        "Manejo de estado del servidor (caching, fetching, sincronización de datos remotos)",
+        "Compilar TypeScript a JavaScript",
+        "Crear migraciones de base de datos"
+      ],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 11, "topic": "Plantilla GitHub Bun",
+      "q": "Bun es principalmente:",
+      "options": [
+        "Una base de datos relacional",
+        "Un runtime/toolkit de JavaScript (alternativa a Node.js) con bundler y test runner integrados",
+        "Un framework CSS",
+        "Un servicio de hosting"
+      ],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 12, "topic": "Backend Architecture",
+      "q": "¿Cuál código de estado HTTP indica que la solicitud fue válida pero no se autorizó al cliente?",
+      "options": ["400 Bad Request", "401 Unauthorized", "403 Forbidden", "404 Not Found"],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 13, "topic": "Backend Architecture",
+      "q": "En una arquitectura backend con separación de capas, ¿cuál es la responsabilidad principal de la capa de servicio (service layer)?",
+      "options": [
+        "Manejar las peticiones HTTP y respuestas",
+        "Contener la lógica de negocio independiente del transporte",
+        "Acceder directamente a la base de datos sin abstracciones",
+        "Renderizar la UI"
+      ],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 14, "topic": "Playwright",
+      "q": "Playwright se usa principalmente para:",
+      "options": [
+        "Pruebas unitarias de funciones puras",
+        "Pruebas end-to-end automatizadas en navegadores reales",
+        "Compilación de TypeScript",
+        "Linting de código JavaScript"
+      ],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 15, "topic": "Pre/Post IA",
+      "q": "¿Cuáles son cambios típicos en el flujo de trabajo del desarrollador en la era Post-IA? (selecciona todas las que apliquen)",
+      "options": [
+        "Mayor uso de pair-programming con agentes",
+        "Más tiempo en revisión y especificación de tareas",
+        "Generación de scaffolding y boilerplate automatizado",
+        "Eliminación total de la necesidad de pruebas"
+      ],
+      "correct": [0, 1, 2], "multi": true
+    },
+    {
+      "n": 16, "topic": "Pre/Post IA",
+      "q": "Una buena práctica al trabajar con un agente de IA en un proyecto Full Stack es:",
+      "options": [
+        "Dejar que el agente haga commits directos a main sin revisión",
+        "Definir reglas/convenciones del proyecto (ej. en CLAUDE.md o AGENTS.md) y revisar los cambios antes de aceptar",
+        "Evitar usar control de versiones",
+        "No documentar las decisiones técnicas"
+      ],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 17, "topic": "Formulación FS",
+      "q": "En la fase de formulación de un proyecto Full Stack, ¿qué elementos deben definirse claramente al inicio? (selecciona todas las que apliquen)",
+      "options": [
+        "Objetivos del proyecto",
+        "Alcance y stack tecnológico",
+        "Requerimientos funcionales y no funcionales",
+        "El número exacto de líneas de código a escribir"
+      ],
+      "correct": [0, 1, 2], "multi": true
+    },
+    {
+      "n": 18, "topic": "Definición Problema",
+      "q": "Una buena 'definición del problema' en un proyecto de software debe:",
+      "options": [
+        "Saltar directamente a la solución técnica",
+        "Describir claramente el problema, a quién afecta y por qué importa, antes de proponer solución",
+        "Ser idéntica al pitch comercial",
+        "Solo enumerar tecnologías a usar"
+      ],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 19, "topic": "Stack",
+      "q": "En un stack moderno con Bun + TypeScript + MongoDB, ¿qué afirmación es FALSA?",
+      "options": [
+        "Bun puede servir como runtime del backend",
+        "TypeScript añade tipado estático a JavaScript",
+        "MongoDB almacena datos en tablas con esquema rígido",
+        "Es posible containerizar todo con Docker Compose"
+      ],
+      "correct": [2], "multi": false
+    },
+    {
+      "n": 20, "topic": "Containerización",
+      "q": "¿Cuáles son ventajas reales de la containerización (Docker) en un proyecto Full Stack? (selecciona todas las que apliquen)",
+      "options": [
+        "Entornos reproducibles entre dev/staging/prod",
+        "Aislamiento de servicios (frontend, backend, DB)",
+        "Facilita desplegar en distintos hosts",
+        "Elimina por completo la necesidad de pruebas"
+      ],
+      "correct": [0, 1, 2], "multi": true
+    }
+  ],
+  "dev": [
+    {
+      "n": 21, "points": 10,
+      "q": "Explica con un ejemplo concreto la diferencia entre un Requerimiento Funcional y un Requerimiento No Funcional en el diseño de una API REST de una aplicación Full Stack, y justifica por qué esa diferencia es importante para la arquitectura."
+    },
+    {
+      "n": 22, "points": 10,
+      "q": "Compara dos herramientas de IA agentic (por ejemplo Claude Code, GitHub Copilot CLI, OpenCode): identifica 2 diferencias clave (técnicas o de filosofía) y explica en qué tipo de proyecto Full Stack elegirías una sobre la otra y por qué."
+    }
+  ]
+}

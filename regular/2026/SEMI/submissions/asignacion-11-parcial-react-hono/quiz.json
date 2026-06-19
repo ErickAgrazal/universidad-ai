@@ -1,0 +1,255 @@
+{
+  "_class": "1GS241 + 1GS242 (mismo contenido para ambas)",
+  "_schedule": {
+    "1GS241": "Mon Jun 15, 2026 — post 7:30 PM, due 8:10 PM (Panama). (El original del Jun 10 fue borrado por el profesor y recreado el 2026-06-10.)",
+    "1GS242": "Tue Jun 16, 2026 — post 7:30 PM, due 8:10 PM (Panama). (Movido desde Jun 11 7:50 PM el 2026-06-10.)"
+  },
+  "_duration_min": 30,
+  "_scoring": {"mc_each": 3, "dev_each": 10, "total": 80},
+  "_theme": "React 19 (15 MC) + Hono (5 MC) + 2 desarrollo (escenarios)",
+  "_syllabus_mapping": {
+    "react": "Módulo III, Unidad III: Estructura de apps React, JSX y renderizado, Componentes y eventos, Listas/formularios/validación, Hooks, Integración frontend-backend (consumo de APIs) — actualizado a React 19",
+    "hono": "Módulo III, Unidad I adaptada de Express a Hono: rutas GET/POST/PUT/DELETE, middlewares, manejo de errores, seguridad con JWT, servidores HTTP/runtimes"
+  },
+  "_topics_covered": [
+    "JSX", "Renderizado/Reconciliación", "Componentes y props", "Eventos",
+    "Listas y key", "Formularios controlados", "Reglas de Hooks", "useState",
+    "useEffect", "use() (React 19)", "Actions/useActionState (React 19)",
+    "ref como prop (React 19)", "React Compiler", "Consumo de APIs",
+    "useOptimistic (React 19)", "Hono: Web Standards y runtimes",
+    "Hono: rutas y Context", "Hono: middlewares", "Hono: manejo de errores",
+    "Hono: JWT"
+  ],
+  "mc": [
+    {
+      "n": 1, "topic": "JSX",
+      "q": "¿Qué es JSX en React?",
+      "options": [
+        "Una extensión de sintaxis que permite escribir marcado similar a HTML dentro de JavaScript",
+        "Un motor de plantillas que se ejecuta en el servidor, separado de JavaScript",
+        "Un lenguaje propio del navegador que reemplaza a JavaScript",
+        "Una librería de estilos que reemplaza a CSS"
+      ],
+      "correct": [0], "multi": false
+    },
+    {
+      "n": 2, "topic": "Renderizado/Reconciliación",
+      "q": "Cuando cambia el estado de un componente, ¿cómo decide React qué actualizar en el DOM?",
+      "options": [
+        "Re-renderiza toda la página desde cero",
+        "Compara el nuevo árbol de elementos con el anterior (reconciliación) y aplica solo los cambios mínimos",
+        "Consulta al servidor qué nodos cambiaron",
+        "Observa el DOM con MutationObserver y revierte cambios externos"
+      ],
+      "correct": [1], "multi": false
+    },
+    {
+      "n": 3, "topic": "Componentes y props",
+      "q": "En React, los props que recibe un componente:",
+      "options": [
+        "Son de solo lectura: el componente no debe modificarlos",
+        "Pueden modificarse libremente dentro del componente",
+        "Solo pueden ser cadenas de texto",
+        "Se comparten automáticamente entre todos los componentes de la app"
+      ],
+      "correct": [0], "multi": false
+    },
+    {
+      "n": 4, "topic": "Eventos",
+      "q": "¿Cuál es la forma correcta de asociar un manejador de eventos en JSX?",
+      "options": [
+        "<button onClick={handleClick}>Guardar</button>",
+        "<button onClick={handleClick()}>Guardar</button>",
+        "<button onclick=\"handleClick()\">Guardar</button>",
+        "<button on-click={handleClick}>Guardar</button>"
+      ],
+      "correct": [0], "multi": false
+    },
+    {
+      "n": 5, "topic": "Listas y key",
+      "q": "Al renderizar una lista con .map(), ¿por qué React exige la prop key en cada elemento?",
+      "options": [
+        "Para identificar qué elementos cambiaron, se agregaron o se eliminaron entre renders",
+        "Para aplicar estilos CSS a cada elemento",
+        "Para ordenar la lista alfabéticamente",
+        "Porque JSX no compila sin ella"
+      ],
+      "correct": [0], "multi": false
+    },
+    {
+      "n": 6, "topic": "Formularios controlados",
+      "q": "¿Qué define a un componente controlado en un formulario de React?",
+      "options": [
+        "El valor del input vive en el estado de React y se actualiza mediante onChange",
+        "El DOM guarda el valor y React lo lee solo al enviar el formulario",
+        "El input se valida automáticamente sin código adicional",
+        "El formulario se envía sin recargar la página"
+      ],
+      "correct": [0], "multi": false
+    },
+    {
+      "n": 7, "topic": "Reglas de Hooks",
+      "q": "¿Cuáles son reglas de los Hooks en React? (selecciona todas las que apliquen)",
+      "options": [
+        "Llamarlos solo en el nivel superior, nunca dentro de condicionales o bucles",
+        "Llamarlos solo desde componentes de función o custom hooks",
+        "Sus nombres deben comenzar con el prefijo use",
+        "Pueden llamarse desde cualquier función JavaScript normal"
+      ],
+      "correct": [0, 1, 2], "multi": true
+    },
+    {
+      "n": 8, "topic": "useState",
+      "q": "Con const [count, setCount] = useState(0), ¿qué ocurre al llamar setCount(count + 1)?",
+      "options": [
+        "React actualiza el estado y programa un re-render del componente",
+        "La variable count se muta de inmediato sin re-render",
+        "Solo cambia el DOM, pero el estado interno queda igual",
+        "El componente se desmonta y se vuelve a montar"
+      ],
+      "correct": [0], "multi": false
+    },
+    {
+      "n": 9, "topic": "useEffect",
+      "q": "¿Cuándo se ejecuta un useEffect cuyo arreglo de dependencias es vacío ([])?",
+      "options": [
+        "Una sola vez, después del primer render (montaje)",
+        "En cada render del componente",
+        "Nunca, porque no tiene dependencias",
+        "Solo cuando el componente se desmonta"
+      ],
+      "correct": [0], "multi": false
+    },
+    {
+      "n": 10, "topic": "use() (React 19)",
+      "q": "En React 19, ¿qué permite la nueva API use()?",
+      "options": [
+        "Leer el valor de una Promise o de un Context, incluso dentro de condicionales",
+        "Crear estado global sin librerías externas",
+        "Reemplazar JSX por plantillas HTML",
+        "Importar componentes de otros frameworks"
+      ],
+      "correct": [0], "multi": false
+    },
+    {
+      "n": 11, "topic": "Actions/useActionState (React 19)",
+      "q": "En React 19, las Actions y el hook useActionState sirven para:",
+      "options": [
+        "Manejar envíos de formularios y mutaciones asíncronas con estados de pendiente y error gestionados automáticamente",
+        "Definir las rutas de navegación de la aplicación",
+        "Animar transiciones entre componentes",
+        "Conectarse directamente a la base de datos desde el frontend"
+      ],
+      "correct": [0], "multi": false
+    },
+    {
+      "n": 12, "topic": "ref como prop (React 19)",
+      "q": "¿Qué cambió con ref en React 19?",
+      "options": [
+        "Los componentes de función reciben ref como un prop normal, sin necesidad de forwardRef",
+        "ref fue eliminado del framework",
+        "ref ahora solo funciona en componentes de clase",
+        "ref pasó a llamarse reference"
+      ],
+      "correct": [0], "multi": false
+    },
+    {
+      "n": 13, "topic": "React Compiler",
+      "q": "¿Cuál es el beneficio principal del React Compiler?",
+      "options": [
+        "Memoriza y optimiza componentes automáticamente, reduciendo la necesidad de useMemo y useCallback manuales",
+        "Convierte el código React a aplicaciones móviles nativas",
+        "Elimina el Virtual DOM por completo",
+        "Compila JSX directamente a WebAssembly"
+      ],
+      "correct": [0], "multi": false
+    },
+    {
+      "n": 14, "topic": "Consumo de APIs",
+      "q": "Al consumir una API REST desde React, ¿qué estados conviene manejar en la interfaz? (selecciona todas las que apliquen)",
+      "options": [
+        "Carga (loading) mientras se espera la respuesta",
+        "Error si la petición falla",
+        "Datos recibidos cuando la respuesta es exitosa",
+        "La versión de npm instalada en el servidor"
+      ],
+      "correct": [0, 1, 2], "multi": true
+    },
+    {
+      "n": 15, "topic": "useOptimistic (React 19)",
+      "q": "El hook useOptimistic de React 19 se utiliza para:",
+      "options": [
+        "Mostrar de inmediato en la UI el resultado esperado de una operación asíncrona mientras esta se confirma",
+        "Optimizar el tamaño de las imágenes de la aplicación",
+        "Reducir el tamaño del bundle de producción",
+        "Elegir automáticamente el servidor más rápido"
+      ],
+      "correct": [0], "multi": false
+    },
+    {
+      "n": 16, "topic": "Hono: Web Standards y runtimes",
+      "q": "¿Qué caracteriza a Hono frente a Express? (selecciona todas las que apliquen)",
+      "options": [
+        "Está construido sobre Web Standards (Request/Response)",
+        "Corre en múltiples runtimes: Cloudflare Workers, Bun, Deno y Node.js",
+        "Incluye middlewares integrados como JWT, CORS y logger",
+        "Requiere obligatoriamente Node.js para funcionar"
+      ],
+      "correct": [0, 1, 2], "multi": true
+    },
+    {
+      "n": 17, "topic": "Hono: rutas y Context",
+      "q": "En Hono, ¿cuál es la forma correcta de definir una ruta GET que responde JSON?",
+      "options": [
+        "app.get('/api/users', (c) => c.json(users))",
+        "app.get('/api/users', (req, res) => res.json(users))",
+        "app.route('GET', '/api/users', users)",
+        "hono.fetch('/api/users').json(users)"
+      ],
+      "correct": [0], "multi": false
+    },
+    {
+      "n": 18, "topic": "Hono: middlewares",
+      "q": "¿Cuál es el patrón correcto de un middleware en Hono?",
+      "options": [
+        "async (c, next) => { /* lógica */ await next(); }",
+        "(req, res, next) => { /* lógica */ next(); }",
+        "app.middleware((ctx) => ctx)",
+        "function middleware() { return true; }"
+      ],
+      "correct": [0], "multi": false
+    },
+    {
+      "n": 19, "topic": "Hono: manejo de errores",
+      "q": "¿Cómo se centraliza el manejo de errores en una API construida con Hono?",
+      "options": [
+        "Lanzando HTTPException en las rutas y capturándolas con app.onError((err, c) => ...)",
+        "Obligatoriamente con try/catch dentro de cada ruta",
+        "Con window.onerror en el cliente",
+        "Hono no permite manejo centralizado de errores"
+      ],
+      "correct": [0], "multi": false
+    },
+    {
+      "n": 20, "topic": "Hono: JWT",
+      "q": "Para proteger rutas de una API Hono con JSON Web Token, lo recomendado es:",
+      "options": [
+        "Aplicar el middleware integrado de hono/jwt a las rutas que requieren autenticación",
+        "Instalar express-jwt como dependencia",
+        "Validar el token manualmente en el frontend con React",
+        "JWT no es compatible con Hono"
+      ],
+      "correct": [0], "multi": false
+    }
+  ],
+  "dev": [
+    {
+      "n": 21, "points": 10,
+      "q": "Escenario: Una startup panameña construye un panel de administración web con datos que cambian en tiempo real, formularios complejos y múltiples vistas. Evalúa si React 19 es una buena solución para este frontend y justifica técnicamente tu respuesta con base en las capacidades del framework."
+    },
+    {
+      "n": 22, "points": 10,
+      "q": "Escenario: Una empresa necesita una API REST de baja latencia para usuarios en varios países, desplegada en el edge (por ejemplo Cloudflare Workers) y ejecutable también en Node.js durante el desarrollo. Evalúa si Hono es mejor solución que Express para este caso y justifica técnicamente tu respuesta."
+    }
+  ]
+}
