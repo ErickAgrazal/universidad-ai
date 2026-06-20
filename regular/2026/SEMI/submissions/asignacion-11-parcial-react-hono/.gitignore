@@ -1,0 +1,7 @@
+# Raw Forms exports + intermediate grading data (student PII) — never version.
+# Only GRADING_RESULTS.md (report), grade_quiz.py (scorer) and quiz.json are tracked.
+responses_*.xlsx
+verify_*.xlsx
+_dev*.json
+_plan*.json
+_scores*.json
