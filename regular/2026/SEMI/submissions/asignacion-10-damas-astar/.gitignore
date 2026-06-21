@@ -1,0 +1,10 @@
+# Repos clonados de estudiantes (PII + .git anidados) — nunca versionar
+grupo-1/
+grupo-2/
+_extra/
+# Intermedios de calificación (PII: nombres+notas) y exports crudos
+_*.json
+_*.sh
+*.xlsx
+.playwright-mcp/
+# Solo se versionan: FINAL_GRADES.md, RUBRIC.md, INSTRUCTIONS.md, assignment.json
