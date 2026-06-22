@@ -1,0 +1,5 @@
+# PDFs generados (binarios, regenerables desde ASSIGNMENTS.md) y fuentes copiadas
+*.pdf
+_fonts/
+# Se versiona: VERSIONS.md (registro de versiones) y el script en ../../scripts/
+!VERSIONS.md
