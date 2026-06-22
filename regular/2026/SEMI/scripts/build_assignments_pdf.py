@@ -97,6 +97,11 @@ def prepare_logos():
         dst = ASSETS_DIR / f"{key}.png"
         im.save(dst)
         out[key] = dst.as_posix()
+    # aspect ratios (ancho/alto) del original, para no deformar al fijar tamaño
+    with Image.open(LOGO_UTP) as u:
+        out["utp_ar"] = u.width / u.height
+    with Image.open(LOGO_FISC) as fi:
+        out["fisc_ar"] = fi.width / fi.height
     return out
 
 
@@ -111,7 +116,11 @@ def next_version():
 
 
 CSS_TMPL = """
-@page {{ size: a4 landscape; margin: 2.4cm 1.3cm 1.35cm 1.3cm;
+/* Portada: SIN encabezado institucional (solo el lockup grande de logos) */
+@page cover {{ size: a4 landscape; margin: 1.3cm 1.3cm 1.35cm 1.3cm;
+  @frame footer {{ -pdf-frame-content: footerContent; bottom: 0.55cm; margin-left: 1.3cm; margin-right: 1.3cm; height: 0.6cm; }} }}
+/* Páginas de contenido: encabezado (membrete) + footer (área de contenido derivada del margen) */
+@page main {{ size: a4 landscape; margin: 2.4cm 1.3cm 1.35cm 1.3cm;
   @frame header {{ -pdf-frame-content: headerContent; top: 0.4cm; margin-left: 1.3cm; margin-right: 1.3cm; height: 1.7cm; }}
   @frame footer {{ -pdf-frame-content: footerContent; bottom: 0.55cm; margin-left: 1.3cm; margin-right: 1.3cm; height: 0.6cm; }} }}
 @font-face {{ font-family: "AUni"; src: url("{reg}"); }}
@@ -123,7 +132,7 @@ h2.first {{ page-break-before: avoid; }}
 h3 {{ font-size: 10.5pt; color: #16608a; margin: 9pt 0 3pt 0; -pdf-outline: true; -pdf-outline-level: 1; -pdf-outline-open: false; }}
 a {{ color: #0b3d66; text-decoration: none; }}
 /* Portada */
-.cover {{ page-break-after: always; }}
+.cover {{ }}
 .cover-band {{ background: #0b3d66; color: #ffffff; padding: 34pt 30pt; margin-top: 60pt; }}
 .cover-band h1 {{ color: #ffffff; font-size: 30pt; margin: 0; }}
 .cover-band .sub {{ color: #cfe0ef; font-size: 13pt; margin-top: 8pt; }}
@@ -204,19 +213,24 @@ def render():
         f'Catálogo de Asignaciones — SEMI 2026 (DS_IX) · v{ver:03d} · {today} · '
         f'<pdf:pagenumber> / <pdf:pagecount></div>'
     )
+    uh_w, fh_w = 26 * logos["utp_ar"], 26 * logos["fisc_ar"]
+    uc_w, fc_w = 96 * logos["utp_ar"], 96 * logos["fisc_ar"]
     header = (
         '<div id="headerContent"><table class="plain"><tr>'
-        f'<td style="width:70pt;"><img src="{logos["utp_head"]}" style="height:26pt;" /></td>'
+        f'<td style="width:90pt;"><img src="{logos["utp_head"]}" '
+        f'style="width:{uh_w:.1f}pt; height:26pt;" /></td>'
         '<td class="hdr-center"><b>Universidad Tecnológica de Panamá</b><br/>'
         "Facultad de Ingeniería de Sistemas Computacionales (FISC) · DES__SOFT_IX</td>"
-        f'<td style="width:70pt; text-align:right;"><img src="{logos["fisc_head"]}" style="height:26pt;" /></td>'
+        f'<td style="width:90pt; text-align:right;"><img src="{logos["fisc_head"]}" '
+        f'style="width:{fh_w:.1f}pt; height:26pt;" /></td>'
         "</tr></table></div>"
     )
     cover = (
         '<div class="cover">'
         '<div class="cover-logos">'
-        f'<img src="{logos["utp_cover"]}" style="height:96pt;" />'
-        f'<img src="{logos["fisc_cover"]}" style="height:96pt; margin-left:60pt;" />'
+        f'<img src="{logos["utp_cover"]}" style="width:{uc_w:.1f}pt; height:96pt;" />'
+        f'<img src="{logos["fisc_cover"]}" '
+        f'style="width:{fc_w:.1f}pt; height:96pt; margin-left:60pt;" />'
         "</div>"
         '<div class="cover-band">'
         f"<h1>{cover_title}</h1>"
@@ -233,9 +247,13 @@ def render():
         "e índice clicable (toca el código AN en la tabla).</div>"
         "</div>"
     )
+    # La portada usa la plantilla @page cover (sin header); tras ella se cambia
+    # a @page main (con membrete) para todo el resto del documento.
     html = (
         f'<html><head><meta charset="utf-8"><style>{css}</style></head>'
-        f"<body>{footer}{header}{cover}{html_body}</body></html>"
+        f"<body>{footer}{header}{cover}"
+        '<pdf:nexttemplate name="main" /><pdf:nextpage />'
+        f"{html_body}</body></html>"
     )
 
     out_pdf = OUT_DIR / f"ASSIGNMENTS_v{ver:03d}_{today}.pdf"
