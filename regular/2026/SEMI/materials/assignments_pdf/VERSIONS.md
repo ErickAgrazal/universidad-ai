@@ -4,3 +4,4 @@ Cada línea = una emisión del PDF (`ASSIGNMENTS_vNNN_fecha.pdf`). Los PDF en es
 `uv run --with markdown --with xhtml2pdf regular/2026/SEMI/scripts/build_assignments_pdf.py --note "..."`
 
 - v001 — 2026-06-22 07:57 — ASSIGNMENTS_v001_2026-06-22.pdf — versión inicial del catálogo (A1–A14)
+- v002 — 2026-06-22 08:09 — ASSIGNMENTS_v002_2026-06-22.pdf — portada + bookmarks navegables + índice clicable (landscape)

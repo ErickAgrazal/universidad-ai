@@ -83,9 +83,18 @@ CSS_TMPL = """
 @font-face {{ font-family: "AUni"; src: url("{bold}"); font-weight: bold; }}
 body {{ font-family: "AUni"; font-size: 8.6pt; line-height: 1.35; color: #1a1a1a; }}
 h1 {{ font-size: 19pt; color: #0b3d66; margin: 0 0 4pt 0; }}
-h2 {{ font-size: 13pt; color: #0b3d66; page-break-before: always; border-bottom: 1.2pt solid #0b3d66; padding-bottom: 2pt; margin: 0 0 6pt 0; }}
+h2 {{ font-size: 13pt; color: #0b3d66; page-break-before: always; border-bottom: 1.2pt solid #0b3d66; padding-bottom: 2pt; margin: 0 0 6pt 0; -pdf-outline: true; -pdf-outline-level: 0; -pdf-outline-open: false; }}
 h2.first {{ page-break-before: avoid; }}
-h3 {{ font-size: 10.5pt; color: #16608a; margin: 9pt 0 3pt 0; }}
+h3 {{ font-size: 10.5pt; color: #16608a; margin: 9pt 0 3pt 0; -pdf-outline: true; -pdf-outline-level: 1; -pdf-outline-open: false; }}
+a {{ color: #0b3d66; text-decoration: none; }}
+/* Portada */
+.cover {{ page-break-after: always; }}
+.cover-band {{ background: #0b3d66; color: #ffffff; padding: 34pt 30pt; margin-top: 60pt; }}
+.cover-band h1 {{ color: #ffffff; font-size: 30pt; margin: 0; }}
+.cover-band .sub {{ color: #cfe0ef; font-size: 13pt; margin-top: 8pt; }}
+.cover-meta {{ margin: 26pt 30pt 0 30pt; font-size: 11pt; color: #1a1a1a; }}
+.cover-meta .v {{ color: #137333; font-weight: bold; }}
+.cover-toc {{ margin: 18pt 30pt 0 30pt; font-size: 9pt; color: #555; }}
 p {{ margin: 3pt 0; }}
 ul, ol {{ margin: 3pt 0 3pt 14pt; }}
 li {{ margin: 1.5pt 0; }}
@@ -112,7 +121,36 @@ def render():
     )
     # marca de respuesta correcta: emoji ✅ -> check verde con glifo Unicode estándar
     html_body = html_body.replace("✅", '<span class="chk">✓</span>')
-    # primer h2 (Índice) sin salto de página previo
+
+    # Anclas/ids en cada sección "## A{N}" -> navegación (bookmarks) + índice clicable
+    def _slug(num):
+        return "sec-a" + num.replace(".", "_")
+
+    def _h2_anchor(m):
+        num = m.group(1)
+        inner = m.group(0)[len("<h2>"):-len("</h2>")]
+        sid = _slug(num)
+        return f'<a name="{sid}"></a><h2 id="{sid}">{inner}</h2>'
+
+    html_body = re.sub(r"<h2>A(\d+(?:\.\d+)?)\b[^<]*</h2>", _h2_anchor, html_body)
+
+    # Índice: 1ª celda (A1, A11.1, ...) -> enlace clicable a su sección
+    html_body = re.sub(
+        r"<td>(A(\d+(?:\.\d+)?))</td>",
+        lambda m: f'<td><a href="#{_slug(m.group(2))}">{m.group(1)}</a></td>',
+        html_body,
+    )
+
+    # Extraer H1 + blockquote inicial para la portada y quitarlos del cuerpo
+    cover_title = "Catálogo de Asignaciones — SEMI 2026 (DS_IX)"
+    m_h1 = re.search(r"<h1>(.*?)</h1>", html_body, re.S)
+    if m_h1:
+        cover_title = re.sub(r"<[^>]+>", "", m_h1.group(1)).strip()
+    html_body = re.sub(r"^\s*<h1>.*?</h1>\s*", "", html_body, count=1, flags=re.S)
+    html_body = re.sub(
+        r"^\s*<blockquote>.*?</blockquote>\s*", "", html_body, count=1, flags=re.S
+    )
+    # primer h2 (Índice) sin salto de página previo (va tras la portada)
     html_body = html_body.replace("<h2>", '<h2 class="first">', 1)
 
     css = CSS_TMPL.format(reg=reg_dst.as_posix(), bold=bold_dst.as_posix())
@@ -124,9 +162,26 @@ def render():
         f'Catálogo de Asignaciones — SEMI 2026 (DS_IX) · v{ver:03d} · {today} · '
         f'<pdf:pagenumber> / <pdf:pagecount></div>'
     )
+    cover = (
+        '<div class="cover">'
+        '<div class="cover-band">'
+        f"<h1>{cover_title}</h1>"
+        '<div class="sub">Curso DES__SOFT_IX · 1GS241 + 1GS242</div>'
+        "</div>"
+        '<div class="cover-meta">'
+        f'Versión <span class="v">v{ver:03d}</span> · {today}<br/>'
+        "Catálogo de las asignaciones colocadas a los estudiantes — metadata, "
+        "instrucciones/contenido y rúbricas (A1–A14).<br/>"
+        "Fuente de verdad de lo que ven los estudiantes: Microsoft Teams."
+        "</div>"
+        '<div class="cover-toc">Generado desde ASSIGNMENTS.md con '
+        "scripts/build_assignments_pdf.py — navegación por marcadores (bookmarks) "
+        "e índice clicable (toca el código AN en la tabla).</div>"
+        "</div>"
+    )
     html = (
         f'<html><head><meta charset="utf-8"><style>{css}</style></head>'
-        f"<body>{footer}{html_body}</body></html>"
+        f"<body>{footer}{cover}{html_body}</body></html>"
     )
 
     out_pdf = OUT_DIR / f"ASSIGNMENTS_v{ver:03d}_{today}.pdf"
