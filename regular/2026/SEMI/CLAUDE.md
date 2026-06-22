@@ -51,6 +51,8 @@ SEMI/
 
 ## Estado actual (al 2026-06-11)
 
+> **Catálogo de asignaciones**: `ASSIGNMENTS.md` (en esta carpeta) es el índice único con metadata + instrucciones/contenido + rúbrica de cada asignación (A1–A14). Regenerar/actualizar al crear o modificar una asignación. La fuente de verdad de lo que ven los estudiantes sigue siendo Teams.
+
 - **A1–A6**: calificadas en ambas clases (excepto retornos manuales pendientes que hace el usuario).
 - **A7 (`7. Parcial #2: MVP de Aplicación Startup Full Stack en Grupo`)**: notas manuales del usuario ingresadas en Teams. En 241 queda 1 entrega en "Ready to grade".
 - **A8 (`8. Parcial Teórico`)** = Parcial #1 teórico: 20 MC + 2 desarrollo = 80 pts, 20 min. Aplicado May 20 (241) y May 21 (242).
