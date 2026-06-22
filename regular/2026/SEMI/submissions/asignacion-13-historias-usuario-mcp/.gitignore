@@ -1,0 +1,12 @@
+# Entregas de estudiantes (PDFs) e intermedios de calificación (PII) — nunca versionar
+raw/
+grupo-1/
+grupo-2/
+extracted/
+_*.json
+_*.sh
+*.xlsx
+*.pdf
+*.docx
+.playwright-mcp/
+# Solo se versionan: assignment.json (+ RUBRIC.md / FINAL_GRADES.md si se generan)

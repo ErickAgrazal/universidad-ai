@@ -1,0 +1,54 @@
+{
+  "number": 13,
+  "title": "13. Diseño: Historias de Usuario MVP — Production-Ready y MCP",
+  "_title_note": "Acortado a 61 chars por el límite de 70 del campo título de Teams (el original era '13. Diseño: Historias de Usuario del MVP — Estado actual, Production-Ready y MCP').",
+  "points": 100,
+  "group": "Grupal — mismos grupos del Parcial #2 (MVP, A7).",
+  "final_action": "assign",
+  "_status": "Publicado (Assign) en ambas clases el 2026-06-21 con rúbrica Teams 5×20%. 241: due Lun 22 jun 11:59 PM. 242: due Mar 23 jun 11:59 PM.",
+  "classes": [
+    {"section": "1GS241", "team": "DES__SOFT_IX_1GS241_2026", "due": "2026-06-22T23:59:00", "due_human": "Lun 22 jun 2026, 11:59 PM"},
+    {"section": "1GS242", "team": "DES__SOFT_IX_1GS242_2026", "due": "2026-06-23T23:59:00", "due_human": "Mar 23 jun 2026, 11:59 PM"}
+  ],
+  "_context": "Fase de diseño del proyecto MCP (próximo: servidor MCP sobre el comercio electrónico del Parcial #2). Después se hace reunión presencial por grupo para decidir qué historias implementar y qué agregar.",
+  "instructions": "A partir del MVP que construyeron en el Parcial #2 (A7), elaboren EN GRUPO (los mismos grupos del MVP) un documento PDF que liste, en forma de HISTORIAS DE USUARIO, dos cosas: (1) las funcionalidades que YA implementaron, y (2) las funcionalidades que FALTAN para considerar el proyecto 'production ready'.\n\nEsto alimenta el próximo proyecto: un servidor MCP sobre su comercio electrónico. Por eso, parte de las funcionalidades deben pensarse para exponerse a través de un MCP (Model Context Protocol), bajo autenticación, e importables desde Claude Code o Codex.\n\nFormato de cada historia de usuario:\n- \"Como <rol>, quiero <funcionalidad/acción>, para <beneficio/objetivo>.\"\n- Incluir 2 a 4 criterios de aceptación por historia.\n- Numerar todas las historias y marcar claramente cuáles se exponen vía MCP con la etiqueta [MCP].\n\nRequisitos:\n1. Inventario actual: listen como historias de usuario las funcionalidades YA implementadas en su MVP.\n2. Production-ready: al menos 30 historias de usuario NUEVAS (por encima de lo que ya tienen) con lo que falta para que el proyecto sea production ready — por ejemplo: seguridad/autz, pagos reales y webhooks, observabilidad/logs/métricas, manejo de errores, pruebas (unit/E2E), CI/CD y despliegue, roles y permisos, rate limiting, respaldos, accesibilidad, internacionalización, etc.\n3. MCP: del CONJUNTO TOTAL de historias, al menos 15 deben corresponder a funcionalidades expuestas a través de un MCP, bajo autenticación, importables en Claude Code o Codex. Para cada historia [MCP] indiquen: qué herramienta (tool) MCP la expone, qué autenticación requiere, y qué le permitiría hacer al agente.\n4. Entregable: UN PDF (subido a Teams) con ambas secciones (Implementado + Faltante/Production-ready), historias numeradas y etiquetas [MCP].\n\nDespués de la entrega nos reuniremos EN PERSONA, por grupo, para discutir cuáles de estas historias se implementarán y qué otras agregaremos.\n\nEntrega grupal. Un PDF por grupo.",
+  "rubric": {
+    "name": "Rúbrica - Historias de Usuario MVP + MCP",
+    "description": "5 criterios x 20% = 100. Evalúa inventario actual, 30+ historias production-ready, 15+ historias expuestas vía MCP (auth + Claude Code/Codex), formato de historia de usuario y calidad del PDF.",
+    "scale": ["Excelente", "Bueno", "Normal", "Deficiente"],
+    "criteria": [
+      "Inventario del estado actual del MVP (como historias)",
+      "30+ historias nuevas para production-ready",
+      "15+ historias expuestas vía MCP (auth + Claude Code/Codex)",
+      "Formato de historia de usuario y criterios de aceptación",
+      "Calidad, organización y profundidad del PDF"
+    ],
+    "weights": [20, 20, 20, 20, 20],
+    "cells": [
+      "Inventario completo y fiel del MVP entregado; cada funcionalidad existente expresada como historia de usuario clara con criterios de aceptación.",
+      "Cubre la mayoría de lo implementado, con detalles menores faltantes.",
+      "Inventario parcial o impreciso respecto a lo realmente implementado.",
+      "Sin inventario, o no refleja el MVP real.",
+
+      "30 o más historias nuevas, relevantes y bien priorizadas que cubren brechas reales de production-readiness (seguridad, pagos, observabilidad, errores, pruebas, despliegue, roles).",
+      "Cerca de 25-30 historias relevantes, con alguna brecha de cobertura.",
+      "Entre 15 y 25 historias, o varias triviales/poco relevantes.",
+      "Menos de 15 historias nuevas, o irrelevantes.",
+
+      "15 o más historias claramente marcadas [MCP]; cada una especifica la tool MCP, la autenticación y el valor para el agente; importables en Claude Code/Codex.",
+      "15 o más marcadas [MCP] pero con detalle incompleto de auth o tool en algunas.",
+      "Menos de 15 historias MCP, o sin especificar auth/tool/uso.",
+      "Sin historias MCP, o sin sentido técnico.",
+
+      "Todas en formato 'Como… quiero… para…' con criterios de aceptación concretos y verificables.",
+      "Mayoría bien formadas; criterios de aceptación algo genéricos.",
+      "Formato inconsistente o sin criterios de aceptación.",
+      "No usa el formato de historia de usuario.",
+
+      "PDF claro y bien organizado (secciones Implementado/Faltante, numeración, etiquetas [MCP]); profundidad técnica y priorización evidentes.",
+      "Organizado con faltas menores.",
+      "Desorganizado o superficial.",
+      "PDF inservible o sin la estructura pedida."
+    ]
+  }
+}
