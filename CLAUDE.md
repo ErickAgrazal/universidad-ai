@@ -56,6 +56,17 @@ Detalles del editor Forms en `~/.claude/skills/create-teams-assignment/SKILL.md`
 4. **Timer**: para quiz de N minutos, `dueTime = postTime + (N+10) min`. 10 min de buffer de llegada.
 5. Asignaciones se nombran `<N>. <Título>` — verificar en Teams qué números ya están usados antes de numerar.
 
+## Catálogo de asignaciones + PDF versionado (por semestre)
+
+Convención **transversal** (aplica a cualquier año/semestre): cada `SEM*/` mantiene un catálogo único de sus asignaciones y un PDF institucional versionado.
+
+- **`SEM*/ASSIGNMENTS.md`** — índice único con, por cada asignación (A1…AN): metadata (tipo, fechas por sección, puntos, estado, carpeta fuente) + instrucciones/contenido + rúbrica. Para quizzes, incluye las preguntas con la respuesta correcta marcada (✓). Se arma leyendo las fuentes de cada `submissions/asignacion-NN-*/` (assignment.json / quiz.json / RUBRIC.md / INSTRUCTIONS.md), reproducidas fielmente. La **fuente de verdad** de lo que ven los estudiantes sigue siendo Teams.
+- **`SEM*/scripts/build_assignments_pdf.py`** — renderiza `ASSIGNMENTS.md` → PDF (markdown + xhtml2pdf, fuente Arial Unicode, horizontal). El script es **agnóstico del año** (resuelve rutas desde `__file__`): para replicar a otro semestre, **copiar el script + crear el `ASSIGNMENTS.md`** en el nuevo `SEM*/`.
+  - **Branding institucional**: reutiliza los logos oficiales de `.claude/skills/utp-fisc-review-pdf/assets/{utp-logo.png,fisc-logo.png}` (NO bajar de internet). Lockup en la portada (plantilla `@page cover`, sin membrete) + membrete UTP/FISC repetido en cada página de contenido (plantilla `@page main`, vía `pdf:nexttemplate`/`pdf:nextpage`). Fijar `width`+`height` de cada `<img>` según su aspect-ratio real para no deformarlos; dar al `@frame header` alto holgado (~1.7cm) o xhtml2pdf descarta su contenido.
+  - **Versionado**: numera solo (vNNN), no sobrescribe, actualiza `ASSIGNMENTS_latest.pdf` y registra en `materials/assignments_pdf/VERSIONS.md`. Comando: `uv run --with markdown --with xhtml2pdf --with pillow <SEM*>/scripts/build_assignments_pdf.py --note "<qué cambió>"`.
+  - **Gitignore**: los PDF y `_fonts/`+`_assets/` son binarios regenerables (gitignored); se versionan `ASSIGNMENTS.md`, el script y `VERSIONS.md`.
+- **REGLA (siempre)**: al **agregar una asignación o modificar algo** de una (instrucciones, rúbrica, fechas, estado) → (1) actualizar `ASSIGNMENTS.md` y (2) **emitir una nueva versión del PDF** con el comando de arriba.
+
 ## Operación con Playwright Teams
 
 - Usar `mcp__playwright__browser_run_code_unsafe` para flujos complejos con frames anidados (Teams → assignments iframe → Forms iframe).
