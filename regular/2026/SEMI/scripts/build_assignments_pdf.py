@@ -4,7 +4,7 @@ build_assignments_pdf.py — Renderiza ASSIGNMENTS.md (catálogo de asignaciones
 a un PDF versionado.
 
 Uso (desde cualquier cwd):
-    uv run --with markdown --with xhtml2pdf \
+    uv run --with markdown --with xhtml2pdf --with pillow \
         regular/2026/SEMI/scripts/build_assignments_pdf.py --note "agregada A13"
 
 - Fuente:  SEMI/ASSIGNMENTS.md
@@ -29,10 +29,16 @@ import markdown  # type: ignore
 from xhtml2pdf import pisa  # type: ignore
 
 ROOT = Path(__file__).resolve().parents[1]          # .../SEMI
+REPO_ROOT = ROOT.parents[2]                          # .../universidad
 SRC = ROOT / "ASSIGNMENTS.md"
 OUT_DIR = ROOT / "materials" / "assignments_pdf"
 FONT_DIR = OUT_DIR / "_fonts"
+ASSETS_DIR = OUT_DIR / "_assets"
 VERSIONS_LOG = OUT_DIR / "VERSIONS.md"
+
+# Logos institucionales oficiales (reutilizados del skill utp-fisc-review-pdf)
+LOGO_UTP = REPO_ROOT / ".claude/skills/utp-fisc-review-pdf/assets/utp-logo.png"
+LOGO_FISC = REPO_ROOT / ".claude/skills/utp-fisc-review-pdf/assets/fisc-logo.png"
 
 # Fuentes Unicode candidatas (macOS). Primera que exista gana.
 FONT_CANDIDATES_REGULAR = [
@@ -67,6 +73,33 @@ def prepare_fonts():
     return reg_dst, bold_dst
 
 
+def prepare_logos():
+    """Genera versiones redimensionadas (RGBA) de los logos UTP/FISC."""
+    from PIL import Image  # noqa: PLC0415
+
+    if not LOGO_UTP.is_file() or not LOGO_FISC.is_file():
+        sys.exit(
+            "No se encontraron los logos UTP/FISC en "
+            ".claude/skills/utp-fisc-review-pdf/assets/ (utp-logo.png, fisc-logo.png)."
+        )
+    ASSETS_DIR.mkdir(parents=True, exist_ok=True)
+    specs = [
+        ("utp_cover", LOGO_UTP, 360),
+        ("fisc_cover", LOGO_FISC, 360),
+        ("utp_head", LOGO_UTP, 150),
+        ("fisc_head", LOGO_FISC, 150),
+    ]
+    out = {}
+    for key, src, h in specs:
+        im = Image.open(src).convert("RGBA")
+        w = max(1, round(im.width * h / im.height))
+        im = im.resize((w, h), Image.LANCZOS)
+        dst = ASSETS_DIR / f"{key}.png"
+        im.save(dst)
+        out[key] = dst.as_posix()
+    return out
+
+
 def next_version():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     mx = 0
@@ -78,7 +111,9 @@ def next_version():
 
 
 CSS_TMPL = """
-@page {{ size: a4 landscape; margin: 1.4cm 1.3cm; @frame footer {{ -pdf-frame-content: footerContent; bottom: 0.6cm; margin-left: 1.3cm; margin-right: 1.3cm; height: 0.6cm; }} }}
+@page {{ size: a4 landscape; margin: 2.4cm 1.3cm 1.35cm 1.3cm;
+  @frame header {{ -pdf-frame-content: headerContent; top: 0.4cm; margin-left: 1.3cm; margin-right: 1.3cm; height: 1.7cm; }}
+  @frame footer {{ -pdf-frame-content: footerContent; bottom: 0.55cm; margin-left: 1.3cm; margin-right: 1.3cm; height: 0.6cm; }} }}
 @font-face {{ font-family: "AUni"; src: url("{reg}"); }}
 @font-face {{ font-family: "AUni"; src: url("{bold}"); font-weight: bold; }}
 body {{ font-family: "AUni"; font-size: 8.6pt; line-height: 1.35; color: #1a1a1a; }}
@@ -95,6 +130,12 @@ a {{ color: #0b3d66; text-decoration: none; }}
 .cover-meta {{ margin: 26pt 30pt 0 30pt; font-size: 11pt; color: #1a1a1a; }}
 .cover-meta .v {{ color: #137333; font-weight: bold; }}
 .cover-toc {{ margin: 18pt 30pt 0 30pt; font-size: 9pt; color: #555; }}
+.cover-logos {{ text-align: center; margin: 6pt 0 14pt 0; }}
+/* Encabezado institucional (letterhead) repetido en cada página */
+.plain {{ width: 100%; }}
+.plain td {{ border: none; background: none; padding: 1pt 0; vertical-align: middle; }}
+.hdr-center {{ text-align: center; font-size: 7.6pt; color: #0b3d66; line-height: 1.25; }}
+.hdr-center b {{ font-size: 8pt; }}
 p {{ margin: 3pt 0; }}
 ul, ol {{ margin: 3pt 0 3pt 14pt; }}
 li {{ margin: 1.5pt 0; }}
@@ -157,13 +198,26 @@ def render():
     ver = next_version()
     today = _dt.date.today().isoformat()
     stamp = _dt.datetime.now().strftime("%Y-%m-%d %H:%M")
+    logos = prepare_logos()
     footer = (
         f'<div id="footerContent" style="font-size:7pt;color:#888;">'
         f'Catálogo de Asignaciones — SEMI 2026 (DS_IX) · v{ver:03d} · {today} · '
         f'<pdf:pagenumber> / <pdf:pagecount></div>'
     )
+    header = (
+        '<div id="headerContent"><table class="plain"><tr>'
+        f'<td style="width:70pt;"><img src="{logos["utp_head"]}" style="height:26pt;" /></td>'
+        '<td class="hdr-center"><b>Universidad Tecnológica de Panamá</b><br/>'
+        "Facultad de Ingeniería de Sistemas Computacionales (FISC) · DES__SOFT_IX</td>"
+        f'<td style="width:70pt; text-align:right;"><img src="{logos["fisc_head"]}" style="height:26pt;" /></td>'
+        "</tr></table></div>"
+    )
     cover = (
         '<div class="cover">'
+        '<div class="cover-logos">'
+        f'<img src="{logos["utp_cover"]}" style="height:96pt;" />'
+        f'<img src="{logos["fisc_cover"]}" style="height:96pt; margin-left:60pt;" />'
+        "</div>"
         '<div class="cover-band">'
         f"<h1>{cover_title}</h1>"
         '<div class="sub">Curso DES__SOFT_IX · 1GS241 + 1GS242</div>'
@@ -181,7 +235,7 @@ def render():
     )
     html = (
         f'<html><head><meta charset="utf-8"><style>{css}</style></head>'
-        f"<body>{footer}{cover}{html_body}</body></html>"
+        f"<body>{footer}{header}{cover}{html_body}</body></html>"
     )
 
     out_pdf = OUT_DIR / f"ASSIGNMENTS_v{ver:03d}_{today}.pdf"

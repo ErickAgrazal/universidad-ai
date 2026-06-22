@@ -54,7 +54,7 @@ SEMI/
 > **Catálogo de asignaciones**: `ASSIGNMENTS.md` (en esta carpeta) es el índice único con metadata + instrucciones/contenido + rúbrica de cada asignación (A1–A14). La fuente de verdad de lo que ven los estudiantes sigue siendo Teams.
 >
 > **REGLA (siempre)**: cada vez que se **agregue una asignación o se modifique algo** de una (instrucciones, rúbrica, fechas, estado), (1) actualizar `ASSIGNMENTS.md` y (2) **emitir una nueva versión del PDF** corriendo:
-> `uv run --with markdown --with xhtml2pdf regular/2026/SEMI/scripts/build_assignments_pdf.py --note "<qué cambió>"`
+> `uv run --with markdown --with xhtml2pdf --with pillow regular/2026/SEMI/scripts/build_assignments_pdf.py --note "<qué cambió>"`
 > El script numera solo (vNNN), no sobrescribe versiones previas, actualiza `ASSIGNMENTS_latest.pdf` y registra la emisión en `materials/assignments_pdf/VERSIONS.md`. Los PDF están gitignored (binarios); se versionan `ASSIGNMENTS.md`, el script y `VERSIONS.md`.
 
 - **A1–A6**: calificadas en ambas clases (excepto retornos manuales pendientes que hace el usuario).
