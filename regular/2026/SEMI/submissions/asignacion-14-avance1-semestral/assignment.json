@@ -1,0 +1,52 @@
+{
+  "number": 14,
+  "title": "14. Avance 1 del Semestral: Tablero, despliegue y primeros tickets",
+  "points": 100,
+  "group": "Grupal — mismos grupos del MVP (Parcial #2, A7).",
+  "final_action": "schedule",
+  "_series": "Avances del Proyecto Semestral (implementación de las historias de A13 + comentarios del profesor). Avance 1 de 2 antes del cierre de clases (Sáb 11 jul). El Semestral final se sustenta en el periodo de exámenes (13–25 jul).",
+  "classes": [
+    {"section": "1GS241", "team": "DES__SOFT_IX_1GS241_2026", "schedule_post": "2026-06-29T07:00:00", "due": "2026-07-01T23:59:00", "due_human": "Mié 1 jul 2026, 11:59 PM", "schedule_human": "Programado para liberarse Lun 29 jun 7:00 AM"},
+    {"section": "1GS242", "team": "DES__SOFT_IX_1GS242_2026", "schedule_post": "2026-06-29T07:00:00", "due": "2026-07-02T23:59:00", "due_human": "Jue 2 jul 2026, 11:59 PM", "schedule_human": "Programado para liberarse Lun 29 jun 7:00 AM"}
+  ],
+  "instructions": "Primer avance del PROYECTO SEMESTRAL (grupal, mismos grupos del MVP/A7). El semestral consiste en IMPLEMENTAR las historias de usuario que ustedes mismos listaron en A13, incorporando los comentarios del profesor (de la reunión por grupo). Mismo stack que ya traían: React 19 (frontend) + Bun + Hono (backend) + MongoDB, AGREGANDO ahora un servidor MCP.\n\nEntregable de ESTE avance (suben a Teams el enlace al repo + enlace al despliegue + enlace al GitHub Project):\n\n1. GESTIÓN CON GITHUB ISSUES + PROJECTS:\n   - Creen un tablero en GitHub Projects para dar seguimiento al trabajo.\n   - Cada funcionalidad/historia es un TICKET = un Issue de GitHub.\n   - Coloquen TODOS los tickets en el tablero: tanto las funcionalidades que YA están completas (márquenlas como Done) como las que faltan.\n   - Cada ticket debe quedar asociado a uno (o varios, si aplica) Pull Request.\n\n2. DESPLIEGUE REMOTO:\n   - Desplieguen el proyecto en un ambiente remoto GRATUITO (Railway, Render, Fly.io o similar que no cueste dinero).\n   - El enlace debe abrir la aplicación funcionando (aunque sea parcial en este avance).\n\n3. PRIMEROS TICKETS → PRs:\n   - Empiecen a cerrar tickets reales: al menos los primeros, cada uno con su PR mergeado y vinculado al Issue.\n\n4. PRUEBAS (montaje):\n   - Dejen configurado el harness de pruebas con Playwright que interactúe con su página.\n   - En este avance, cubran al menos las funcionalidades que YA están completas.\n\n5. DEMOSTRACIÓN EN CLASE:\n   - TODO el grupo presenta. Muestren el tablero de GitHub Projects, la URL desplegada y los PRs.\n   - Deben conocer y poder explicar lo implementado, de React hasta Bun/Hono.\n\nEntrega grupal. Suban repo + URL del despliegue + URL del GitHub Project.",
+  "rubric": {
+    "name": "Rúbrica - Avance del Semestral",
+    "description": "5 criterios x 20% = 100. Gestión en GitHub Projects/Issues + PRs, despliegue remoto, avance de implementación (React + Bun/Hono + MCP), pruebas Playwright + QA, y demostración en clase del grupo.",
+    "scale": ["Excelente", "Bueno", "Normal", "Deficiente"],
+    "criteria": [
+      "Gestión en GitHub Projects/Issues (tickets) y vínculo a PRs",
+      "Despliegue remoto funcionando (ambiente gratuito)",
+      "Avance de implementación según el hito (React + Bun/Hono + MCP)",
+      "Pruebas determinísticas con Playwright y proceso de QA",
+      "Demostración en clase (todo el grupo, dominio del código)"
+    ],
+    "weights": [20, 20, 20, 20, 20],
+    "cells": [
+      "Tablero completo: todos los tickets como Issues (completos marcados Done + pendientes), bien organizados y cada uno vinculado a su(s) PR(s).",
+      "Tablero con la mayoría de los tickets y PRs vinculados; faltan detalles menores.",
+      "Tablero parcial o tickets sin vincular a PRs.",
+      "Sin tablero/Issues, o sin relación ticket–PR.",
+
+      "Despliegue remoto gratuito funcionando; la URL abre la app y refleja el avance.",
+      "Desplegado con fallas menores o parcialmente actualizado.",
+      "Despliegue inestable o desactualizado respecto al repo.",
+      "Sin despliegue remoto.",
+
+      "Avance claro y verificable del hito de la semana sobre el stack (React + Bun/Hono, e integración MCP cuando aplique); historias completas reflejadas.",
+      "Buen avance con alguna brecha respecto al hito.",
+      "Avance limitado o poco verificable.",
+      "Sin avance demostrable.",
+
+      "Pruebas Playwright determinísticas que interactúan con la página cubriendo las funcionalidades del hito; proceso de QA evidente.",
+      "Pruebas Playwright presentes pero cobertura incompleta o QA incipiente.",
+      "Pocas pruebas o no determinísticas; sin QA.",
+      "Sin pruebas automatizadas.",
+
+      "Todo el grupo presenta y demuestra dominio del código (de React a Bun/Hono); responden con solvencia.",
+      "Presenta la mayoría del grupo; dominio bueno con dudas menores.",
+      "Presentación parcial del grupo o dominio débil.",
+      "No demuestran el avance o no dominan su propio código."
+    ]
+  }
+}

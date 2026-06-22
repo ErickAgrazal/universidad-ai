@@ -20,7 +20,9 @@
 | A11.1 | Reposición React/Hono (5 alumnos) | Quiz Forms | Mié Jun 24 / Jue Jun 25, 7:30 PM | 80 | Programada |
 | A12 | Laboratorio: Servidor MCP local | Lab | Mié Jun 24 / Jue Jun 25, 11 PM | 100 | Publicada |
 | A13 | Historias de Usuario MVP — Production-Ready y MCP | Grupal | Lun Jun 22 / Mar Jun 23, 11:59 PM | 100 | Publicada |
-| A14 | Build servidor MCP (sobre comercio del Parcial #2) | Proyecto | — | — | Sin publicar (pendiente) |
+| A14 | Avance 1 del Semestral: Tablero, despliegue y primeros tickets | Grupal (lab) | Mié Jul 1 / Jue Jul 2, 11:59 PM | 100 | Programada (libera Lun 29 jun) |
+| A15 | Avance 2 del Semestral: MCP, QA y pruebas E2E | Grupal (lab) | Mié Jul 8 / Jue Jul 9, 11:59 PM | 100 | Programada (libera Lun 6 jul) |
+| A16 | Proyecto Semestral: Implementación, MCP y sustentación | Proyecto | Sustentación en exámenes (13–25 jul) | 100 | Borrador (fecha/nota pendiente) |
 
 ---
 
@@ -1169,14 +1171,70 @@ VERBATIM de `assignment.json` (rúbrica Teams). **Rúbrica - Historias de Usuari
 
 ---
 
-## A14 — Build servidor MCP (sobre comercio del Parcial #2)
+## A14 — Avance 1 del Semestral: Tablero, despliegue y primeros tickets
 
-**Tipo:** Proyecto · **Puntos:** — · **Due 241 / 242:** — · **Estado:** Sin publicar (pendiente) · **Carpeta fuente:** — (sin carpeta de asignación aún)
+**Tipo:** Grupal (lab de avance) · **Puntos:** 100 · **Due 241 / 242:** Mié 1 jul / Jue 2 jul 2026, 11:59 PM · **Estado:** Programada (libera Lun 29 jun 7:00 AM) · **Carpeta fuente:** `submissions/asignacion-14-avance1-semestral/`
+
+> Primer avance del PROYECTO SEMESTRAL (grupal, mismos grupos del MVP/A7) = implementar las historias de A13 + comentarios del profesor, sobre React 19 + Bun/Hono + MongoDB + servidor MCP. Serie de 2 avances semanales antes del cierre de clases (Sáb 11 jul).
 
 ### Instrucciones / Contenido
 
-**Pendiente.** No existe carpeta `asignacion-14-*/` ni `assignment.json`. Es el próximo proyecto: un **servidor MCP sobre el comercio electrónico del Parcial #2 (A7)**, integrado en Claude Code (.mcp.json) y ChatGPT (app/connector con Streamable HTTP). La base documental ya se publicó (2026-06-12) en Class Materials de ambos salones: `materials/modulos/MODULO_EXTRA_AGENTES_DESARROLLO_IA/MODULO_EXTRA_MCP_PROYECTOS_JUNIO_2026.pdf`. El enunciado formal en Teams está pendiente. Será **A14** porque 12 (lab MCP) y 13 (diseño de historias) ya están usados.
+Entregable (suben repo + URL del despliegue + URL del GitHub Project):
+1. **GitHub Issues + Projects**: tablero con TODOS los tickets (historias), las completas marcadas Done; cada ticket vinculado a uno o varios PR.
+2. **Despliegue remoto** en ambiente gratuito (Railway/Render/Fly.io); la URL abre la app funcionando (aunque parcial).
+3. **Primeros tickets → PRs** mergeados y vinculados al Issue.
+4. **Pruebas (montaje)**: harness de Playwright que interactúe con la página, cubriendo al menos lo ya completo.
+5. **Demostración en clase**: todo el grupo; muestran tablero, URL y PRs; dominan de React a Bun/Hono.
 
 ### Rúbrica
 
-Pendiente — aún no definida (asignación sin publicar).
+**Rúbrica - Avance del Semestral** — 5 criterios × 20% = 100. Escala: Excelente / Bueno / Normal / Deficiente.
+
+| Criterio (20% c/u) | Excelente | Bueno | Normal | Deficiente |
+|---|---|---|---|---|
+| GitHub Projects/Issues + PRs | Todos los tickets como Issues (completos Done + pendientes), vinculados a PRs | Mayoría de tickets/PRs vinculados; faltas menores | Tablero parcial o tickets sin PRs | Sin tablero, o sin relación ticket–PR |
+| Despliegue remoto (gratuito) | URL abre la app y refleja el avance | Fallas menores o parcialmente actualizado | Inestable o desactualizado | Sin despliegue |
+| Avance de implementación (hito) | Avance claro y verificable sobre el stack (React + Bun/Hono, MCP cuando aplique) | Buen avance con alguna brecha | Limitado o poco verificable | Sin avance demostrable |
+| Pruebas Playwright + QA | Determinísticas cubriendo lo del hito; QA evidente | Cobertura incompleta o QA incipiente | Pocas o no determinísticas; sin QA | Sin pruebas |
+| Demostración en clase | Todo el grupo, dominio del código; responden con solvencia | Mayoría presenta; dudas menores | Parcial o dominio débil | No dominan su propio código |
+
+---
+
+## A15 — Avance 2 del Semestral: MCP, QA y pruebas E2E
+
+**Tipo:** Grupal (lab de avance) · **Puntos:** 100 · **Due 241 / 242:** Mié 8 jul / Jue 9 jul 2026, 11:59 PM · **Estado:** Programada (libera Lun 6 jul 7:00 AM) · **Carpeta fuente:** `submissions/asignacion-15-avance2-semestral/`
+
+> Segundo avance del PROYECTO SEMESTRAL. Mismo stack + MCP.
+
+### Instrucciones / Contenido
+
+Entregable (repo + URL del despliegue + URL del GitHub Project):
+1. **Progreso en GitHub Projects**: varios tickets cerrados con PRs mergeados/vinculados; tablero refleja estado real.
+2. **Funcionalidad MCP**: integrar el servidor MCP (al menos las tools [MCP] de A13, bajo auth, importables en Claude Code/Codex).
+3. **QA + Pruebas**: al menos un proceso de QA (p.ej. CI con linters/tests por PR); pruebas Playwright determinísticas cubriendo TODAS las funcionalidades.
+4. **Despliegue actualizado** (URL funcional).
+5. **Presentación (borrador)**: pitch de 5 min — de qué trata y qué problema resuelve.
+6. **Demostración en clase**: todo el grupo; dominan de React a Bun/Hono y el MCP.
+
+### Rúbrica
+
+Misma **Rúbrica - Avance del Semestral** (5×20%), con celdas ajustadas al hito MCP/QA/E2E (criterio 3 exige MCP integrado; criterio 4 exige pruebas Playwright cubriendo TODAS las funcionalidades + proceso de QA implementado).
+
+---
+
+## A16 — Proyecto Semestral: Implementación, MCP y sustentación
+
+**Tipo:** Proyecto (30% del curso) · **Puntos:** 100 · **Due 241 / 242:** sustentación en el periodo de exámenes (Lun 13 – Sáb 25 jul 2026) · **Estado:** BORRADOR (fecha de sustentación y detalle de nota pendientes) · **Carpeta fuente:** `submissions/asignacion-16-semestral-final/`
+
+### Instrucciones / Contenido
+
+Cierre del semestral: implementación de las historias de A13 (+ comentarios) sobre React 19 + Bun/Hono + MongoDB + servidor MCP. El día de la presentación: TODO el grupo presenta; pitch de 5 min (de qué trata y qué problema resuelve); demo en vivo desde la app desplegada; responden hasta 5 preguntas (dominio de React a Bun/Hono y MCP). Requisitos de cierre: historias implementadas + MCP (tools bajo auth) + GitHub Issues/Projects con tickets ligados a PRs + despliegue remoto gratuito + ≥1 proceso de QA + pruebas Playwright determinísticas sobre TODAS las funcionalidades.
+
+### Nota (a confirmar)
+
+- **Funcionalidad: 60%** · **Preguntas (hasta 5): 40%** · **Presentación (pitch 5 min): +10%.**
+- *Pendiente confirmar:* el usuario dijo "la presentación vale 10% más" — interpretación tentativa: 60+40 = 100, y la presentación suma 10 adicional (total hasta 110, o 10% extra). Y falta fijar el día/hora de sustentación dentro de exámenes.
+
+### Rúbrica
+
+Pendiente — se define al confirmar fecha y esquema de nota.

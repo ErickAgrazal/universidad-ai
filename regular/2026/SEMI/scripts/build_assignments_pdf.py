@@ -239,7 +239,7 @@ def render():
         '<div class="cover-meta">'
         f'Versión <span class="v">v{ver:03d}</span> · {today}<br/>'
         "Catálogo de las asignaciones colocadas a los estudiantes — metadata, "
-        "instrucciones/contenido y rúbricas (A1–A14).<br/>"
+        "instrucciones/contenido y rúbricas (A1–A16).<br/>"
         "Fuente de verdad de lo que ven los estudiantes: Microsoft Teams."
         "</div>"
         '<div class="cover-toc">Generado desde ASSIGNMENTS.md con '

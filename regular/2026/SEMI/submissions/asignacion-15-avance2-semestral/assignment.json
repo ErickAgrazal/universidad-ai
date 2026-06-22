@@ -1,0 +1,52 @@
+{
+  "number": 15,
+  "title": "15. Avance 2 del Semestral: MCP, QA y pruebas E2E completas",
+  "points": 100,
+  "group": "Grupal — mismos grupos del MVP (Parcial #2, A7).",
+  "final_action": "schedule",
+  "_series": "Avances del Proyecto Semestral. Avance 2 de 2 antes del cierre de clases (Sáb 11 jul). El Semestral final se sustenta en el periodo de exámenes (13–25 jul).",
+  "classes": [
+    {"section": "1GS241", "team": "DES__SOFT_IX_1GS241_2026", "schedule_post": "2026-07-06T07:00:00", "due": "2026-07-08T23:59:00", "due_human": "Mié 8 jul 2026, 11:59 PM", "schedule_human": "Programado para liberarse Lun 6 jul 7:00 AM"},
+    {"section": "1GS242", "team": "DES__SOFT_IX_1GS242_2026", "schedule_post": "2026-07-06T07:00:00", "due": "2026-07-09T23:59:00", "due_human": "Jue 9 jul 2026, 11:59 PM", "schedule_human": "Programado para liberarse Lun 6 jul 7:00 AM"}
+  ],
+  "instructions": "Segundo avance del PROYECTO SEMESTRAL (grupal, mismos grupos del MVP/A7). Continúan implementando sus historias de A13 + comentarios del profesor, sobre el mismo stack (React 19 + Bun + Hono + MongoDB) e integrando el servidor MCP.\n\nEntregable de ESTE avance (suben a Teams el enlace al repo + enlace al despliegue + enlace al GitHub Project):\n\n1. PROGRESO EN GITHUB PROJECTS:\n   - Avance sustancial: varios tickets cerrados, cada uno con su(s) PR(s) mergeado(s) y vinculado(s) al Issue.\n   - El tablero refleja el estado real: qué está Done, en progreso y pendiente.\n\n2. FUNCIONALIDAD MCP:\n   - Integren el servidor MCP: al menos las tools que listaron como [MCP] en A13, bajo autenticación, importables desde Claude Code o Codex.\n\n3. CALIDAD (QA) + PRUEBAS:\n   - Implementen al menos UN proceso de QA (por ejemplo: CI que corra linters/tests en cada PR, o un flujo de revisión documentado).\n   - Pruebas determinísticas con Playwright que interactúen con su página y cubran TODAS las funcionalidades de la aplicación.\n\n4. DESPLIEGUE ACTUALIZADO:\n   - El despliegue remoto gratuito debe estar actualizado con lo implementado a la fecha (URL funcional).\n\n5. PRESENTACIÓN (borrador):\n   - Preparen el borrador de la presentación de 5 minutos del proyecto: de qué trata y qué problema resuelve su app.\n\n6. DEMOSTRACIÓN EN CLASE:\n   - TODO el grupo presenta y debe dominar lo implementado, de React hasta Bun/Hono y el MCP.\n\nEntrega grupal. Suban repo + URL del despliegue + URL del GitHub Project.",
+  "rubric": {
+    "name": "Rúbrica - Avance del Semestral",
+    "description": "5 criterios x 20% = 100. Gestión en GitHub Projects/Issues + PRs, despliegue remoto, avance de implementación (React + Bun/Hono + MCP), pruebas Playwright + QA, y demostración en clase del grupo.",
+    "scale": ["Excelente", "Bueno", "Normal", "Deficiente"],
+    "criteria": [
+      "Gestión en GitHub Projects/Issues (tickets) y vínculo a PRs",
+      "Despliegue remoto funcionando (ambiente gratuito)",
+      "Avance de implementación según el hito (React + Bun/Hono + MCP)",
+      "Pruebas determinísticas con Playwright y proceso de QA",
+      "Demostración en clase (todo el grupo, dominio del código)"
+    ],
+    "weights": [20, 20, 20, 20, 20],
+    "cells": [
+      "Tablero completo: varios tickets cerrados, cada uno vinculado a su(s) PR(s); estado real (Done/en progreso/pendiente) bien reflejado.",
+      "Buen progreso con la mayoría de tickets vinculados; faltan detalles menores.",
+      "Progreso parcial o tickets sin vincular a PRs.",
+      "Sin avance en el tablero, o sin relación ticket–PR.",
+
+      "Despliegue remoto gratuito actualizado y funcionando; la URL abre la app con lo implementado a la fecha.",
+      "Desplegado con fallas menores o parcialmente actualizado.",
+      "Despliegue inestable o desactualizado respecto al repo.",
+      "Sin despliegue remoto.",
+
+      "Funcionalidad MCP integrada (tools bajo auth, importables en Claude Code/Codex) + avance fuerte de historias sobre el stack.",
+      "MCP integrado con detalles incompletos, o avance bueno con alguna brecha.",
+      "MCP ausente o avance limitado.",
+      "Sin avance demostrable ni MCP.",
+
+      "Pruebas Playwright determinísticas cubriendo TODAS las funcionalidades + proceso de QA implementado (CI u otro).",
+      "Pruebas con buena cobertura pero no total, o QA incipiente.",
+      "Pocas pruebas o no determinísticas; sin QA.",
+      "Sin pruebas automatizadas ni QA.",
+
+      "Todo el grupo presenta y demuestra dominio del código (de React a Bun/Hono y MCP); responden con solvencia.",
+      "Presenta la mayoría del grupo; dominio bueno con dudas menores.",
+      "Presentación parcial del grupo o dominio débil.",
+      "No demuestran el avance o no dominan su propio código."
+    ]
+  }
+}
