@@ -3,19 +3,43 @@
   "title": "16. Proyecto Semestral: Implementación, MCP y sustentación",
   "points": 100,
   "group": "Grupal — mismos grupos del MVP (Parcial #2, A7). TODO el grupo presenta.",
-  "final_action": "draft",
-  "_status": "BORRADOR — pendiente de confirmar con el profesor: (1) fecha/hora de sustentación dentro del periodo de exámenes (Lun 13 – Sáb 25 jul 2026), y (2) interpretación de la nota (ver _grading).",
-  "_context": "Cierre del Proyecto Semestral: implementación de las historias de A13 (+ comentarios del profesor) sobre React 19 + Bun/Hono + MongoDB + servidor MCP. Vale el 30% del curso (ponderación del semestre).",
+  "final_action": "assign",
+  "_status": "BORRADOR — fecha de sustentación CONFIRMADA (241 jue 23 jul, 242 vie 24 jul). Pendiente: confirmar interpretación de la nota (ver _grading._nota) antes de crear/programar en Teams.",
+  "_context": "Cierre del Proyecto Semestral: implementación de las historias de A13 (+ comentarios del profesor) sobre React 19 + Bun/Hono + MongoDB + servidor MCP. Vale el 30% del curso (ponderación del semestre). Sustentación en la 2da semana de semestrales (20–25 jul): jueves 241, viernes 242.",
   "classes": [
-    {"section": "1GS241", "team": "DES__SOFT_IX_1GS241_2026", "due": "PENDIENTE — día de sustentación (exámenes 13–25 jul)"},
-    {"section": "1GS242", "team": "DES__SOFT_IX_1GS242_2026", "due": "PENDIENTE — día de sustentación (exámenes 13–25 jul)"}
+    {"section": "1GS241", "team": "DES__SOFT_IX_1GS241_2026", "due": "2026-07-23", "due_human": "Jue 23 jul 2026 (sustentación en clase)"},
+    {"section": "1GS242", "team": "DES__SOFT_IX_1GS242_2026", "due": "2026-07-24", "due_human": "Vie 24 jul 2026 (sustentación en clase)"}
   ],
   "_grading": {
-    "funcionalidad": "60% — funcionalidades implementadas (historias de A13 + comentarios), desplegadas, con MCP, QA y pruebas Playwright determinísticas sobre todas las funcionalidades.",
+    "funcionalidad": "50% — funcionalidades implementadas (historias de A13 + comentarios), desplegadas, con MCP, QA y pruebas Playwright determinísticas sobre todas las funcionalidades.",
     "preguntas": "40% — hasta 5 preguntas el día de la presentación (dominio del proyecto, de React a Bun/Hono y MCP).",
-    "presentacion": "+10% — presentación de 5 minutos: de qué trata el proyecto y qué problema resuelve la app.",
-    "_nota": "El usuario dijo 'la presentación debe valer 10% más'. Interpretación tentativa: Funcionalidad 60 + Preguntas 40 = 100, y la presentación suma 10 adicional (total hasta 110, o 10% extra). CONFIRMAR si es así o si se reescala a 100."
+    "presentacion": "10% — presentación de 5 minutos: de qué trata el proyecto y qué problema resuelve la app.",
+    "_nota": "CONFIRMADO por el usuario (2026-06-23): sobre 100 = Funcionalidad 50% + Preguntas 40% + Presentación 10%."
   },
-  "instructions": "Sustentación final del PROYECTO SEMESTRAL (grupal, mismos grupos del MVP/A7). Implementaron las historias de usuario que listaron en A13 con los comentarios del profesor, sobre React 19 + Bun + Hono + MongoDB, integrando un servidor MCP.\n\nEl día de la presentación:\n- TODO el grupo presenta.\n- Presentación de 5 minutos: expliquen de qué trata el proyecto y qué problema resuelve su aplicación.\n- Demostración en vivo de las funcionalidades, desde la app desplegada (ambiente remoto gratuito).\n- Responderán hasta 5 preguntas; deben conocer y poder explicar todo lo implementado, de React hasta Bun/Hono y el MCP.\n\nRequisitos del proyecto (cierre):\n1. Funcionalidades de A13 implementadas (+ comentarios del profesor).\n2. Servidor MCP integrado (tools bajo autenticación, importables en Claude Code/Codex).\n3. Gestión con GitHub Issues (tickets) + GitHub Projects; tickets vinculados a PRs; funcionalidades completas marcadas.\n4. Despliegue remoto gratuito funcionando (Railway/Render/Fly o similar).\n5. Al menos un proceso de QA.\n6. Pruebas determinísticas con Playwright que interactúen con la página, cubriendo TODAS las funcionalidades.\n\nNota: la nota del semestral se compone de 60% funcionalidad + 40% preguntas, más un 10% por la presentación de 5 minutos.",
-  "rubric": null
+  "instructions": "Sustentación final del PROYECTO SEMESTRAL (grupal, mismos grupos del MVP/A7). Implementaron las historias de usuario que listaron en A13 con los comentarios del profesor, sobre React 19 + Bun + Hono + MongoDB, integrando un servidor MCP.\n\nSustentación EN CLASE: 1GS241 jueves 23 de julio; 1GS242 viernes 24 de julio (2da semana de semestrales).\n\nEl día de la presentación:\n- TODO el grupo presenta.\n- Presentación de 5 minutos: expliquen de qué trata el proyecto y qué problema resuelve su aplicación.\n- Demostración en vivo de las funcionalidades, desde la app desplegada (ambiente remoto gratuito).\n- Responderán hasta 5 preguntas; deben conocer y poder explicar todo lo implementado, de React hasta Bun/Hono y el MCP.\n\nRequisitos del proyecto (cierre):\n1. Funcionalidades de A13 implementadas (+ comentarios del profesor).\n2. Servidor MCP integrado (tools bajo autenticación, importables en Claude Code/Codex).\n3. Gestión con GitHub Issues (tickets) + GitHub Projects; tickets vinculados a PRs; funcionalidades completas marcadas.\n4. Despliegue remoto gratuito funcionando (Railway/Render/Fly o similar).\n5. Al menos un proceso de QA.\n6. Pruebas determinísticas con Playwright que interactúen con la página, cubriendo TODAS las funcionalidades.\n\nCalificación (sobre 100): Funcionalidad 50% + Preguntas el día de la presentación (hasta 5) 40% + Presentación de 5 minutos 10%.",
+  "rubric": {
+    "name": "Rúbrica - Proyecto Semestral",
+    "description": "3 criterios = 100. Funcionalidad 50%, Dominio/Preguntas 40%, Presentación de 5 min 10%.",
+    "scale": ["Excelente", "Bueno", "Normal", "Deficiente"],
+    "criteria": [
+      "Funcionalidad implementada (historias A13 + MCP, desplegada, QA, pruebas E2E)",
+      "Dominio del proyecto (hasta 5 preguntas: de React a Bun/Hono y MCP)",
+      "Presentación de 5 minutos (de qué trata y qué problema resuelve)"
+    ],
+    "weights": [50, 40, 10],
+    "cells": [
+      "Todas (o casi todas) las historias de A13 + comentarios implementadas y desplegadas; MCP integrado bajo auth; QA y pruebas Playwright determinísticas sobre TODAS las funcionalidades; tickets→PRs en GitHub Projects.",
+      "Mayoría de funcionalidades implementadas y desplegadas; MCP y pruebas presentes con brechas menores.",
+      "Funcionalidad parcial; MCP, QA o pruebas incompletos; despliegue inestable.",
+      "Funcionalidad mínima o no desplegada; sin MCP/pruebas.",
+      "Todo el grupo domina el proyecto; responden las preguntas con solvencia técnica (de React a Bun/Hono y MCP).",
+      "Buen dominio general; algunas respuestas dudosas.",
+      "Dominio parcial; varios integrantes no explican su parte.",
+      "No demuestran dominio de su propio proyecto.",
+      "Presentación de 5 min clara y convincente: explican de qué trata y qué problema resuelve, con buen uso del tiempo.",
+      "Presentación clara con faltas menores.",
+      "Presentación confusa o fuera de tiempo.",
+      "Sin presentación o no explica el problema."
+    ]
+  }
 }

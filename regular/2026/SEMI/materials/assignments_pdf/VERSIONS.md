@@ -8,3 +8,4 @@ Cada línea = una emisión del PDF (`ASSIGNMENTS_vNNN_fecha.pdf`). Los PDF en es
 - v003 — 2026-06-22 08:20 — ASSIGNMENTS_v003_2026-06-22.pdf — branding institucional UTP/FISC (logos en portada + encabezado por página)
 - v004 — 2026-06-22 08:56 — ASSIGNMENTS_v004_2026-06-22.pdf — fix: logos sin deformar (aspect-ratio) + sin encabezado en la portada (plantillas cover/main)
 - v005 — 2026-06-22 16:29 — ASSIGNMENTS_v005_2026-06-22.pdf — agregados A14 y A15 (avances semanales del semestral, programados) y A16 (semestral final, borrador)
+- v006 — 2026-06-23 00:27 — ASSIGNMENTS_v006_2026-06-23.pdf — A16 (Proyecto Semestral) publicado: sustentación 241 Jue 23 jul / 242 Vie 24 jul, nota 50/40/10

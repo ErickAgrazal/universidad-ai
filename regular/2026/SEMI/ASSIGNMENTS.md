@@ -22,7 +22,7 @@
 | A13 | Historias de Usuario MVP — Production-Ready y MCP | Grupal | Lun Jun 22 / Mar Jun 23, 11:59 PM | 100 | Publicada |
 | A14 | Avance 1 del Semestral: Tablero, despliegue y primeros tickets | Grupal (lab) | Mié Jul 1 / Jue Jul 2, 11:59 PM | 100 | Programada (libera Lun 29 jun) |
 | A15 | Avance 2 del Semestral: MCP, QA y pruebas E2E | Grupal (lab) | Mié Jul 8 / Jue Jul 9, 11:59 PM | 100 | Programada (libera Lun 6 jul) |
-| A16 | Proyecto Semestral: Implementación, MCP y sustentación | Proyecto | Sustentación en exámenes (13–25 jul) | 100 | Borrador (fecha/nota pendiente) |
+| A16 | Proyecto Semestral: Implementación, MCP y sustentación | Proyecto | Sustentación: 241 Jue 23 jul / 242 Vie 24 jul | 100 | Publicada |
 
 ---
 
@@ -1224,17 +1224,20 @@ Misma **Rúbrica - Avance del Semestral** (5×20%), con celdas ajustadas al hito
 
 ## A16 — Proyecto Semestral: Implementación, MCP y sustentación
 
-**Tipo:** Proyecto (30% del curso) · **Puntos:** 100 · **Due 241 / 242:** sustentación en el periodo de exámenes (Lun 13 – Sáb 25 jul 2026) · **Estado:** BORRADOR (fecha de sustentación y detalle de nota pendientes) · **Carpeta fuente:** `submissions/asignacion-16-semestral-final/`
+**Tipo:** Proyecto (30% del curso) · **Puntos:** 100 · **Due 241 / 242:** sustentación en clase Jue 23 jul / Vie 24 jul 2026 (2da semana de exámenes) · **Estado:** Publicada (Assign en ambas clases el 2026-06-23) · **Carpeta fuente:** `submissions/asignacion-16-semestral-final/`
 
 ### Instrucciones / Contenido
 
 Cierre del semestral: implementación de las historias de A13 (+ comentarios) sobre React 19 + Bun/Hono + MongoDB + servidor MCP. El día de la presentación: TODO el grupo presenta; pitch de 5 min (de qué trata y qué problema resuelve); demo en vivo desde la app desplegada; responden hasta 5 preguntas (dominio de React a Bun/Hono y MCP). Requisitos de cierre: historias implementadas + MCP (tools bajo auth) + GitHub Issues/Projects con tickets ligados a PRs + despliegue remoto gratuito + ≥1 proceso de QA + pruebas Playwright determinísticas sobre TODAS las funcionalidades.
 
-### Nota (a confirmar)
-
-- **Funcionalidad: 60%** · **Preguntas (hasta 5): 40%** · **Presentación (pitch 5 min): +10%.**
-- *Pendiente confirmar:* el usuario dijo "la presentación vale 10% más" — interpretación tentativa: 60+40 = 100, y la presentación suma 10 adicional (total hasta 110, o 10% extra). Y falta fijar el día/hora de sustentación dentro de exámenes.
+**Calificación (sobre 100):** Funcionalidad 50% + Preguntas (hasta 5) 40% + Presentación de 5 min 10%.
 
 ### Rúbrica
 
-Pendiente — se define al confirmar fecha y esquema de nota.
+**Rúbrica - Proyecto Semestral** — 3 criterios = 100. Escala: Excelente / Bueno / Normal / Deficiente.
+
+| Criterio | Excelente | Bueno | Normal | Deficiente |
+|---|---|---|---|---|
+| Funcionalidad (50%) | Casi todas las historias A13 + comentarios implementadas y desplegadas; MCP bajo auth; QA + Playwright E2E sobre TODAS las funcionalidades; tickets→PRs | Mayoría implementada y desplegada; MCP y pruebas con brechas menores | Funcionalidad parcial; MCP/QA/pruebas incompletos; despliegue inestable | Mínima o no desplegada; sin MCP/pruebas |
+| Dominio / Preguntas (40%) | Todo el grupo domina; responden con solvencia técnica (React a Bun/Hono y MCP) | Buen dominio; algunas respuestas dudosas | Dominio parcial; varios no explican su parte | No dominan su propio proyecto |
+| Presentación 5 min (10%) | Clara y convincente: explican de qué trata y qué problema resuelve, buen uso del tiempo | Clara con faltas menores | Confusa o fuera de tiempo | Sin presentación o no explica el problema |
